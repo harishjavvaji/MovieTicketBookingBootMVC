@@ -1,10 +1,25 @@
 package com.movieticket.booking.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Movie {
 
+    @NotNull
+    @Column(name="moviename")
     private String movieName;
+    @NotNull
+    @Column(name="actorname")
     private String actorName;
-    private String genre, length;
+    @NotNull
+    @Column(name="genre")
+    private String genre;
+    @NotNull
+    @Column(name="length")
+    private String length;
 
     public Movie(String movieName, String actorName, String genre, String length) {
         this.movieName = movieName;
