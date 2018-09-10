@@ -6,16 +6,16 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Payment {
-    @NotNull
+    @NotNull(message = "CardNumber is required")
     @Column(name = "cardnumber")
     private int cardNumber;
-    @NotNull
+    @NotNull(message = "please provide Cardholder Name")
     @Column(name = "cardholdername")
     private String cardHolderName;
-    @NotNull
+    @NotNull(message = "Month is required")
     @Column(name = "month")
     private int month;
-    @NotNull
+    @NotNull(message = "Year is required")
     @Column(name = "year")
     private int year;
 

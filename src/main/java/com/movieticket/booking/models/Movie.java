@@ -8,16 +8,13 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Movie {
 
-    @NotNull
+    @NotNull(message = "Please choose your Movie")
     @Column(name="moviename")
     private String movieName;
-    @NotNull
     @Column(name="actorname")
     private String actorName;
-    @NotNull
     @Column(name="genre")
     private String genre;
-    @NotNull
     @Column(name="length")
     private String length;
 

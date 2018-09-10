@@ -8,20 +8,20 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Customer {
-    @NotNull
+
     @Column(name = "firstname")
-    @NotNull
+    @NotNull(message = "FirstName is required")
     private String firstName;
     @Column(name = "lastname")
-    @NotNull
+    @NotNull(message = "LastName is required")
     private String lastName;
     @Column(name = "email")
-    @NotNull
+    @NotNull(message = "Email is required")
     private String email;
     @Id
     @Column(name = "username")
     private String userName;
-    @NotNull
+    @NotNull(message = "Password is required")
     @Column(name = "password")
     private String password;
 

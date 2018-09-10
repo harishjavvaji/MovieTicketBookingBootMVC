@@ -7,13 +7,13 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Theatre {
 
-    @NotNull
+    @NotNull(message = "Choose Theatre")
     @Column(name="theatrename")
     private String theatreName;
-    @NotNull
+    @NotNull(message = "CityName is required")
     @Column(name="city")
     private String city;
-    @NotNull
+    @NotNull(message = "Zipcode is required")
     @Column(name="zipcode")
     private int zipcode;
 
