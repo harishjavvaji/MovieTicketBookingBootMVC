@@ -10,8 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-background-image: url("paper.gif");
-background-color: #cccccc;
+
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -21,14 +20,14 @@ background-color: #cccccc;
         <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
 
-            <li><a href="#">Movies</a></li>
+            <li><a href="/movies">Movies</a></li>
 
         </ul>
 
 
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            <li><a href="/registartion"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 
 
         </ul>

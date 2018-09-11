@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>LoginHome</title>
+    <title>Movies</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,11 +43,10 @@
         </div>
 
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Movies</a></li>
+            <li class="active"><a href="/movies">Movies</a></li>
 
-            <li><a href="/doctors">Theatres</a></li>
-            <li><a href="/myAppointments">Login</a></li>
-            <li><a href="/myAppointments">SignUp</a> </li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/registration">SignUp</a> </li>
 <>
         </ul>
 

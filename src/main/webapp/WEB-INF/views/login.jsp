@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Registration</title>
+    <title>Login</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,25 +20,23 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
 
-            <li><a href="#">Page 1</a></li>
+            <li><a href="/movies">Movies</a></li>
         </ul>
 
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         </ul>
     </div>
 </nav>
 
 <div class="form-group">
-    <ul>
-        <li>${error}</li>
-    </ul>
+    ${error}
 </div>
 
 
-<form class="form-horizontal" action="/validatelogin" method="post">
+<form class="form-horizontal" action="/validateLogin" method="post">
     <div class="form-group">
         <label class="control-label col-sm-2" for="userName">Username:</label>
         <div class="col-sm-10">
