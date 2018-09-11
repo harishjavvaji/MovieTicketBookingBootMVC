@@ -1,22 +1,22 @@
 package com.movieticket.booking.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-@Entity
+//@Entity
 public class Payment {
-    @NotNull
-    @Column(name = "cardnumber")
+//    @NotNull
+//    @Column(name = "cardnumber")
     private int cardNumber;
-    @NotNull
-    @Column(name = "cardholdername")
+//    @NotNull
+//    @Column(name = "cardholdername")
     private String cardHolderName;
-    @NotNull
-    @Column(name = "month")
+//    @NotNull
+//    @Column(name = "month")
     private int month;
-    @NotNull
-    @Column(name = "year")
+//    @NotNull
+//    @Column(name = "year")
     private int year;
 
     public Payment() {

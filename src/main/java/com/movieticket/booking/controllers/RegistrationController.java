@@ -1,7 +1,6 @@
 package com.movieticket.booking.controllers;
 
 import com.movieticket.booking.models.Customer;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
