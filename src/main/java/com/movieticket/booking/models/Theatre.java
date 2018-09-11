@@ -1,20 +1,20 @@
 package com.movieticket.booking.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-@Entity
+//@Entity
 public class Theatre {
 
-    @NotNull(message = "Choose Theatre")
-    @Column(name="theatrename")
+//    @NotNull
+//    @Column(name="theatrename")
     private String theatreName;
-    @NotNull(message = "CityName is required")
-    @Column(name="city")
+//    @NotNull
+//    @Column(name="city")
     private String city;
-    @NotNull(message = "Zipcode is required")
-    @Column(name="zipcode")
+//    @NotNull
+//    @Column(name="zipcode")
     private int zipcode;
 
     public Theatre() {

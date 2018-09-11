@@ -1,28 +1,28 @@
 package com.movieticket.booking.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.validation.constraints.NotNull;
 
-@Entity
+//@Entity
 public class Customer {
-
-    @Column(name = "firstname")
-    @NotNull(message = "FirstName is required")
+//    @NotNull
+//    @Column(name = "firstname")
+//    @NotNull
     private String firstName;
-    @Column(name = "lastname")
-    @NotNull(message = "LastName is required")
+//    @Column(name = "lastname")
+//    @NotNull
     private String lastName;
-    @Column(name = "email")
-    @NotNull(message = "Email is required")
+//    @Column(name = "email")
+//    @NotNull
     private String email;
-    @Id
-    @Column(name = "username")
+//    @Id
+//    @Column(name = "username")
     private String userName;
-    @NotNull(message = "Password is required")
-    @Column(name = "password")
+//    @NotNull
+//    @Column(name = "password")
     private String password;
 
 
