@@ -12,6 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<Style>
+    .navbar-inverse {
+        background-color: #242;
+        border-color: #082308;
+        font-style:italic;
+    }
+</Style>
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -36,8 +43,7 @@
     ${error}
 </div>
 
-
-<form:form class="form-horizontal" action="/validateLogin" method="post" modelAttribute="customer">
+<form:form class="form-middle" action="/validateLogin" method="post" modelAttribute="customer">
     <div class="form-group">
         <label class="control-label col-sm-2" for="userName">Username:</label>
         <div class="col-sm-10">
