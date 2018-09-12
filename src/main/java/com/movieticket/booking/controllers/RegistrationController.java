@@ -32,18 +32,20 @@ public class RegistrationController {
             return modelAndView;
         }
 
-        ResponseEntity<Customer> responseEntity =
-                restTemplate.postForEntity("/url",customer, Customer.class);
+        ResponseEntity<Integer> responseEntity =
+                restTemplate.postForEntity("http://localhost:8085/customers",customer, Integer.class);
+
         int statusCode = responseEntity.getStatusCodeValue();
 
-        if (statusCode >= 200 && statusCode <= 299) {
-            return new ModelAndView("home");
+            if (statusCode >= 200 && statusCode <= 299) {
+                return new ModelAndView("login");
 
-        }else {
-            ModelAndView modelAndView = new ModelAndView("home");
-            modelAndView.addObject("Server is temporarily down");
-            return modelAndView;
-        }
+            } else {
+                ModelAndView modelAndView = new ModelAndView("home");
+                modelAndView.addObject("Server is temporarily down");
+                return modelAndView;
+            }
+
 
     }
 

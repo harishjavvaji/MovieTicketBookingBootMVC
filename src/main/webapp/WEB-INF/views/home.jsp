@@ -39,6 +39,5 @@
     <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
 
-<div class="bg"></div>
 </body>
 </html>

@@ -7,13 +7,13 @@ import javax.validation.constraints.NotNull;
 //@Entity
 public class Theatre {
 
-//    @NotNull
+    @NotNull
 //    @Column(name="theatrename")
     private String theatreName;
-//    @NotNull
+    @NotNull
 //    @Column(name="city")
     private String city;
-//    @NotNull
+    @NotNull
 //    @Column(name="zipcode")
     private int zipcode;
 

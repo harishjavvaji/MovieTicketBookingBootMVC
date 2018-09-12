@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.security.auth.login.LoginContext;
 import javax.validation.Valid;
 
 @Controller
-@SessionAttributes("customer")
+//@SessionAttributes("customer")
 public class LoginController {
     @Autowired
     LoginService loginService;
@@ -24,20 +23,21 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView viewLogin() {
 
-        ModelAndView modelAndView = new ModelAndView("login");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
         modelAndView.addObject(new Customer());
         return modelAndView;
 
     }
 
     @RequestMapping(value = "/validateLogin", method = RequestMethod.POST)
-    public ModelAndView validateLogin(@Valid @ModelAttribute("customer")Customer customer, Errors errors) {
-        if (errors.hasErrors()) {
-
-            ModelAndView modelAndView = new ModelAndView("login");
-            modelAndView.addObject("error", errors.getAllErrors());
-            return modelAndView;
-        }
+    public ModelAndView validateLogin(@ModelAttribute("customer") Customer customer) {
+//        if (errors.hasErrors()) {
+//
+//            ModelAndView modelAndView = new ModelAndView("login");
+//            modelAndView.addObject("error", errors.getAllErrors());
+//            return modelAndView;
+//        }
 
         Boolean validation = loginService.validateLogin(customer);
 
