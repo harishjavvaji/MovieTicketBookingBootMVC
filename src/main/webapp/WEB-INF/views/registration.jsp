@@ -14,6 +14,13 @@
 
 
 </head>
+<Style>
+    .navbar-inverse {
+        background-color: #242;
+        border-color: #082308;
+        font-style:italic;
+    }
+</Style>
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -33,7 +40,7 @@
         </ul>
     </div>
 </nav>
-<form:form class="form-horizontal" action="/registration" method="post">
+<form:form class="form-middle" action="/registration" method="post">
     <div class="form-group">
         <label class="control-label col-sm-2" for="firstName">First Name:</label>
         <div class="col-sm-10">
