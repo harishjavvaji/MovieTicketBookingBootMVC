@@ -23,7 +23,7 @@ public class MovieController {
         ModelAndView modelAndView = new ModelAndView("movies");
 
         ResponseEntity<Movie[]> responseEntity =
-                restTemplate.getForEntity("/url", Movie[].class);
+                restTemplate.getForEntity("http://localhost:8085/movies", Movie[].class);
         int statusCode = responseEntity.getStatusCodeValue();
 
         if (statusCode >= 200 && statusCode <= 299) {

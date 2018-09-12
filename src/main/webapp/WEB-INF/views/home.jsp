@@ -44,5 +44,10 @@
 
 <img scr="image.png" alt="image" >
 
+
 <div class="bg"></div>
 </body>
+
+</body>
+</html>
+
