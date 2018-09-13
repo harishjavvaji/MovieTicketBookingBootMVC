@@ -16,9 +16,13 @@ public class LoginService {
         ResponseEntity<Customer> responseEntity =
                 restTemplate.postForEntity("http://localhost:8085/customer",customer, Customer.class);
 
-        return (customer.getUserName().equals(responseEntity.getBody().getUserName()) &&
+        if (responseEntity.getBody().getPassword() == null){
+            return false;
+        }else return (customer.getUserName().equals(responseEntity.getBody().getUserName()) &&
                 customer.getPassword().equals(responseEntity.getBody().getPassword()));
 
 
     }
+
+
 }
