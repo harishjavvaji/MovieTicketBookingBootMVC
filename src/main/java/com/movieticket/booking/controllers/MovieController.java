@@ -40,8 +40,10 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/bookmovie", method = RequestMethod.POST)
-    public ModelAndView bookMovie(@ModelAttribute("movie") Movie movie) {
-        ModelAndView modelAndView = new ModelAndView("theatres");
+    public ModelAndView bookMovie(@ModelAttribute("movie") Movie movie, Model model) {
+        ModelAndView modelAndView = new ModelAndView("theatre1");
+        model.addAttribute(new Theatre());
+
 
         ResponseEntity<Theatre[]> responseEntity =
                 restTemplate.postForEntity("http://localhost:8085/theatres", movie, Theatre[].class);
