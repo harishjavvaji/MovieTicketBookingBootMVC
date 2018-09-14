@@ -2,22 +2,22 @@ package com.movieticket.booking.models;
 
 //import javax.persistence.Column;
 //import javax.persistence.Entity;
-//import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+//
 //@Entity
 public class Movie {
 
-//    @NotNull
+    @NotNull
 //    @Column(name="moviename")
     private String movieName;
-//    @NotNull
+    @NotNull
 //    @Column(name="actorname")
     private String actorName;
-//    @NotNull
+    @NotNull
 //    @Column(name="genre")
     private String genre;
-//    @NotNull
+    @NotNull
 //    @Column(name="length")
     private String length;
 
