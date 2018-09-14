@@ -1,10 +1,15 @@
 package com.movieticket.booking.controllers;
 
 import com.movieticket.booking.models.Customer;
+import com.movieticket.booking.validators.RegistrationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,12 +29,11 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView registration(@Valid @ModelAttribute Customer customer, Errors errors) {
+    public ModelAndView registration(@Validated @ModelAttribute Customer customer, BindingResult errors) {
+
 
         if (errors.hasErrors()) {
-            ModelAndView modelAndView = new ModelAndView("registration");
-            modelAndView.addObject("error", errors.getAllErrors());
-            return modelAndView;
+            return new ModelAndView("registration");
         }
 
         ResponseEntity<Integer> responseEntity =
@@ -47,6 +51,12 @@ public class RegistrationController {
             }
 
 
+    }
+
+
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder) {
+        webDataBinder.addValidators(new RegistrationValidator());
     }
 
 
