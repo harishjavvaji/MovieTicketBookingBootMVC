@@ -13,6 +13,7 @@ public class LoginValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
 
+
         Customer customer = (Customer) o;
 
         if (customer.getUserName() == null || customer.getUserName().equals("")) {

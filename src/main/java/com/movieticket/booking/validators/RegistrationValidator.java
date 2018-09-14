@@ -24,7 +24,7 @@ public class RegistrationValidator implements Validator {
         }
         if (customer.getEmail() == null || customer.getEmail().equals("")) {
 
-            errors.rejectValue("email", "customer.email", "email is null or empty");
+            errors.rejectValue("email", "customer.email", "Email is null or empty");
         }
         if (customer.getUserName() == null || customer.getUserName().equals("")) {
 

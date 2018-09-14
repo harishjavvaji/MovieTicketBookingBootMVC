@@ -219,44 +219,53 @@
         }
 
     }
+    .error{
+        color: darkturquoise;
+    }
 
 
 </style>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
 <body>
 
 
 <div class="container">
-    <form action="#" method="post">
+    <form:form action="/registration" method="post" modelAttribute="customer">
         <h2>Registration Form</h2>
         <div class="agileinfo">
-            <input type="text" name="name" placeholder="First Name" required="">
+            <input type="text" name="firstName" placeholder="First Name" >
+            <form:errors cssClass="error" path="firstName"/>
         </div>
         <div class="agileinfo">
-            <input type="text" name="name" placeholder="Last Name" required="">
+            <input type="text" name="lastName" placeholder="Last Name" >
+            <form:errors cssClass="error" path="lastName"/>
         </div>
         <div class="agileinfo">
-            <input type="email" name="email" placeholder="Email" required="">
+            <input type="email" name="email" placeholder="Email" >
+            <form:errors cssClass="error" path="email"/>
         </div>
         <div class="agileinfo">
-            <input type="text" name="name" placeholder="UserName" required="">
+            <input type="text" name="userName" placeholder="UserName" >
+            <form:errors cssClass="error" path="userName"/>
         </div>
         <div class="agileinfo">
-            <input type="Password" name="password" placeholder="Password" required="">
+            <input type="password" name="password" placeholder="Password">
+            <form:errors cssClass="error" path="password"/>
         </div>
         <div class="w3l_but">
             <button type="submit">REGISTER</button>
         </div>
-    </form>
+    </form:form>
     <div class="wthree_down">
         <h3>Already had an Account please Login</h3>
     </div>
     <div class="w3agile_side">
         <div class="main">
             <div class="panel">
-                <a href="#login_form" id="login_pop">LOGIN</a>
+                <a href="/login" id="login_pop">LOGIN</a>
                 </form>
             </div>
         </div>
