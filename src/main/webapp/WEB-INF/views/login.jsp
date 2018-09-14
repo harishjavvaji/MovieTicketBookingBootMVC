@@ -40,7 +40,7 @@
 </nav>
 
 <div class="form-group">
-    ${error}
+    ${validationError}
 </div>
 
 <form:form class="form-middle" action="/validateLogin" method="post" modelAttribute="customer">

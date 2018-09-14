@@ -40,7 +40,7 @@
         </ul>
     </div>
 </nav>
-<form:form class="form-middle" action="/registration" method="post">
+<form:form class="form-middle" action="/registration" method="post" modelAttribute="customer">
     <div class="form-group">
         <label class="control-label col-sm-2" for="firstName">First Name:</label>
         <div class="col-sm-10">
