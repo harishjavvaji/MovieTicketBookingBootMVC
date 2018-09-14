@@ -25,8 +25,7 @@ public class LoginController {
     public ModelAndView viewLogin(Model model) {
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        model.addAttribute(new Customer());
+        modelAndView.setViewName("login1");
         modelAndView.addObject(new Customer());
         return modelAndView;
 
@@ -34,9 +33,16 @@ public class LoginController {
 
     @RequestMapping(value = "/validateLogin", method = RequestMethod.POST)
     public ModelAndView validateLogin(@Validated @ModelAttribute("customer") Customer customer, BindingResult errors) {
+
+        System.out.println("Hai");
+        System.out.println(errors.getErrorCount());
+
+
+
+        System.out.println(customer.getUserName() + customer.getPassword());
         if (errors.hasErrors()) {
 
-            return new ModelAndView("login");
+            return new ModelAndView("login1");
         }
 
         Boolean validation = loginService.validateLogin(customer);
@@ -45,7 +51,7 @@ public class LoginController {
             return new ModelAndView("loginHome");
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("login");
+            ModelAndView modelAndView = new ModelAndView("login1");
             modelAndView.addObject("validationError", "Invalid Username or Password");
             return modelAndView;
         }

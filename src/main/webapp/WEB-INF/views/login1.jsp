@@ -1,3 +1,4 @@
+
 <style>
     a {
         text-decoration: none;
@@ -261,9 +262,19 @@
             font-size: 3em;
         }
     }
+
+    .error{
+        color: darkturquoise;
+    }
 </style>
-<html >
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<html>
 <body>
+<div class="error">
+    ${validationError}
+</div>
+
 <div class="video-w3l" data-vide-bg="video/1">
     <!-- title -->
     <h1>
@@ -272,30 +283,25 @@
     <!-- //title -->
     <!-- content -->
     <div class="sub-main-w3">
-        <form action="#" method="post">
+        <form:form action="/validateLogin" method="post" modelAttribute="customer">
             <div class="form-style-agile">
                 <label>
                     <i class="fas fa-user"></i>Username</label>
-                <input placeholder="Username" name="Name" type="text" required="">
+                <form:input placeholder="Username" path="userName"  name="userName" type="text" required=""/>
+                <form:errors cssClass="error" path="userName"/>
             </div>
             <div class="form-style-agile">
                 <label>
                     <i class="fas fa-unlock-alt"></i>Password</label>
-                <input placeholder="Password" name="Password" type="password" required="">
+                <form:input placeholder="Password" path="password" name="password" type="password" required=""/>
+                <form:errors cssClass="error" path="password"/>
             </div>
             <!-- switch -->
-            <div class="checkout-w3l">
-                <div class="demo5">
-                    <div class="switch demo3">
-                        <input type="checkbox">
-                        <label>
-                            <i></i>
-                        </label>
-                    </div>
-                </div>
-                <a href="#">Remember Me</a>
-            </div>
+
             <!-- //switch -->
             <input type="submit" value="Log In">
+        </form:form>
+    </div>
+</div>
 </body>
 </html>
