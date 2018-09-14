@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 
 @Controller
 public class RegistrationController {
@@ -25,15 +24,15 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView viewRegistration() {
-        return new ModelAndView("registration");
+        return new ModelAndView("registration1");
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView registration(@Validated @ModelAttribute Customer customer, BindingResult errors) {
-
+        System.out.println(customer.getFirstName());
 
         if (errors.hasErrors()) {
-            return new ModelAndView("registration");
+            return new ModelAndView("registration1");
         }
 
         ResponseEntity<Integer> responseEntity =
@@ -42,7 +41,7 @@ public class RegistrationController {
         int statusCode = responseEntity.getStatusCodeValue();
 
             if (statusCode >= 200 && statusCode <= 299) {
-                return new ModelAndView("login");
+                return new ModelAndView("login1");
 
             } else {
                 ModelAndView modelAndView = new ModelAndView("home");

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,14 +13,15 @@ import com.movieticket.booking.models.*;
 import javax.validation.Valid;
 
 @Controller
-//@SessionAttributes("movie")
+@SessionAttributes("movie")
 public class MovieController {
 
     @Autowired
     RestTemplate restTemplate;
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
-    public ModelAndView viewMovies() {
-        ModelAndView modelAndView = new ModelAndView("movies");
+    public ModelAndView viewMovies(Model model) {
+        ModelAndView modelAndView = new ModelAndView("movies1");
+        model.addAttribute("movie", new Movie());
 
         ResponseEntity<Movie[]> responseEntity =
                 restTemplate.getForEntity("http://localhost:8085/movies", Movie[].class);
@@ -28,6 +30,7 @@ public class MovieController {
         if (statusCode >= 200 && statusCode <= 299) {
             Movie[] movies = responseEntity.getBody();
             modelAndView.addObject("moviesArray", movies);
+
         }else {
             modelAndView.addObject("Server is temporarily down");
         }
@@ -37,10 +40,8 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/bookmovie", method = RequestMethod.POST)
-    public ModelAndView bookMovie(@RequestBody Movie movie) {
+    public ModelAndView bookMovie(@ModelAttribute("movie") Movie movie) {
         ModelAndView modelAndView = new ModelAndView("theatres");
-
-
 
         ResponseEntity<Theatre[]> responseEntity =
                 restTemplate.postForEntity("http://localhost:8085/theatres", movie, Theatre[].class);
@@ -54,13 +55,6 @@ public class MovieController {
 
         return modelAndView;
     }
-
-
-
-
-
-
-
 
 
 

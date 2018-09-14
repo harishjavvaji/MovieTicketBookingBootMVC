@@ -199,200 +199,74 @@
             width: 80%;
         }
     }
+    .content{
+        color: #D53233;
+    }
 
 
 </style>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
+
 <div class="content">
+
     <h1>Availablity of Movies</h1>
+
+<c:forEach var="movie1" items="${moviesArray}">
     <div class="container">
 
-        <h2>Screen 1</h2>
+        <form:form action="/bookmovie" method="post" modelAttribute="movie">
 
         <div class="product">
             <div class="product-image">
-                <img src="https://data1.ibtimes.co.in/cache-img-0-450/en/full/698868/1536766974_u-turn.jpg" alt="Ferrari">
+                <img src=${movie1.getImage()} alt=${movie1.getMovieName()}>
             </div>
             <div class="product-info">
-                <p><span>Price</span>$12.00</p>
+                <p><span>Movie Name</span>${movie1.getMovieName()}</p>
+                <p><span>Actor Name</span>${movie1.getActorName()}</p>
+                <p><span>Genre</span>${movie1.getGenre()}</p>
+                <p><span>Movie Length</span>${movie1.getLength()}</p>
                 <p><span>Availability</span>yes</p>
-                <p><span>Rating</span>
-                <div class="rating">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked>
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
-					  </span>
-                </div>
+                <form:input path="movieName" type="hidden" value="${movie1.getMovieName()}" name="movieName"/>
+                <form:input path="actorName" type="hidden" value="${movie1.getActorName()}" name="actorName"/>
+                <form:input path="genre" type="hidden" value="${movie1.getGenre()}" name="genre"/>
+                <form:input path="length" type="hidden" value="${movie1.getLength()}" name="length"/>
+
+
                 <div class="clear"></div>
                 </p>
-                <p><span>Quantity</span>
-                    <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"flat"}'>
-                        <option value="">-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </p>
-                <div class="cart"><a href="#">Book Now</a></div>
+
+
+                <div class="cart"><button type="submit" class="btn btn-primary btn-lg">Book Now</button></div>
             </div>
             <div class="clear"></div>
         </div>
+        </form:form>
 
-        <div class="accordion">
-            <section class="ac-container">
-                <div>
-                    <input id="ac-3" name="accordion-1" type="checkbox" />
-                    <label for="ac-3">Rating & Reviews (40+)</label>
-                    <article class="ac-large ac-review">
-                        <h3>"Excellent Fragrance!"</h3>
-                        <h4>Reno Jean, Certified Buyer.</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <span>5 Stars</span>
-                        <a href="#" class="next">Next Review &rarr;</a>
-                    </article>
-                </div>
-
-            </section>
-        </div>
-
-    </div>
-
-    </br>
-
-    <div class="container">
-
-        <h2>Screen 2</h2>
-
-        <div class="product">
-            <div class="product-image">
-                <img src="https://data1.ibtimes.co.in/cache-img-0-450/en/full/697660/1535574300_imaikkaa-nodigal.jpg" alt="Ferrari">
-            </div>
-            <div class="product-info">
-                <p><span>Price</span>$12.00</p>
-                <p><span>Availability</span>yes</p>
-                <p><span>Rating</span>
-                <div class="rating">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked>
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
-					  </span>
-                </div>
-                <div class="clear"></div>
-                </p>
-                <p><span>Quantity</span>
-                    <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"flat"}'>
-                        <option value="">-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </p>
-                <div class="cart"><a href="#">Book Now</a></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="accordion">
-            <section class="ac-container">
-                <div>
-                    <input id="ac-3" name="accordion-1" type="checkbox" />
-                    <label for="ac-3">Rating & Reviews (40+)</label>
-                    <article class="ac-large ac-review">
-                        <h3>"Excellent Fragrance!"</h3>
-                        <h4>Reno Jean, Certified Buyer.</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <span>5 Stars</span>
-                        <a href="#" class="next">Next Review &rarr;</a>
-                    </article>
-                </div>
-
-            </section>
-        </div>
 
     </div>
     </br>
-    <div class="container">
 
-        <h2>Screen 3</h2>
+</c:forEach>
 
-        <div class="product">
-            <div class="product-image">
-                <img src="http://digitalspyuk.cdnds.net/16/03/980x490/landscape-1453464693-movies-avatar-still-02.jpg" alt="Ferrari">
-            </div>
-            <div class="product-info">
-                <p><span>Price</span>$12.00</p>
-                <p><span>Availability</span>yes</p>
-                <p><span>Rating</span>
-                <div class="rating">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked>
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
-					  </span>
-                </div>
-                <div class="clear"></div>
-                </p>
-                <p><span>Quantity</span>
-                    <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"flat"}'>
-                        <option value="">-</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </p>
-                <div class="cart"><a href="#">Book Now</a></div>
-            </div>
-            <div class="clear"></div>
-        </div>
 
-        <div class="accordion">
-            <section class="ac-container">
-                <div>
-                    <input id="ac-3" name="accordion-1" type="checkbox" />
-                    <label for="ac-3">Rating & Reviews (40+)</label>
-                    <article class="ac-large ac-review">
-                        <h3>"Excellent Fragrance!"</h3>
-                        <h4>Reno Jean, Certified Buyer.</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <span>5 Stars</span>
-                        <a href="#" class="next">Next Review &rarr;</a>
-                    </article>
-                </div>
-
-            </section>
-        </div>
-
-    </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 </body>
 <!-- Body-Ends-Here -->

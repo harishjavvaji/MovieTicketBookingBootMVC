@@ -7,20 +7,13 @@ package com.movieticket.booking.models;
 import javax.validation.constraints.NotNull;
 
 public class Customer {
-    @NotNull(message = "First Name should not be null")
-//    @Column(name = "firstname")
+
     private String firstName;
-//    @Column(name = "lastname")
-    @NotNull(message = "Last Name should not be null")
+
     private String lastName;
-//    @Column(name = "email")
-    @NotNull(message = "E-mail should not be null")
     private String email;
-//    @Id
-//    @Column(name = "username")
     private String userName;
-    @NotNull
-//    @Column(name = "password")
+  
     private String password;
 
 
