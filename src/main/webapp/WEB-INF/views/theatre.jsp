@@ -1,387 +1,498 @@
 <style>
-    *,*:before,*:after {
-        box-sizing: border-box;
+    html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+    article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+    ol,ul{list-style:none;margin:0px;padding:0px;}
+    blockquote,q{quotes:none;}
+    blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+    table{border-collapse:collapse;border-spacing:0;}
+    /* start editing from here */
+    a{text-decoration:none;}
+    .txt-rt{text-align:right;}/* text align right */
+    .txt-lt{text-align:left;}/* text align left */
+    .txt-center{text-align:center;}/* text align center */
+    .float-rt{float:right;}/* float right */
+    .float-lt{float:left;}/* float left */
+    .clear{clear:both;}/* clear float */
+    .pos-relative{position:relative;}/* Position Relative */
+    .pos-absolute{position:absolute;}/* Position Absolute */
+    .vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+    .vertical-top{	vertical-align:top;}/* vertical align top */
+    .underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+    nav.vertical ul li{	display:block;}/* vertical menu */
+    nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+    img{max-width:100%;}
+    body{
+        background-image:url(http://cdn.in.ticketnew.com/Movie/Devi-movie-images/site-images/images/devi_banner_1.jpg);
     }
-    html {
-        font-size: 16px;
-    }
-
-    .plane {
-        margin: 20px auto;
-        max-width: 300px;
-    }
-
-    .cockpit {
-        height: 250px;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        border-bottom: 5px solid #d8d8d8;
-    &:before {
-         content: "";
-         display: block;
-         position: absolute;
-         top: 0;
-         left: 0;
-         height: 500px;
-         width: 100%;
-         border-radius: 50%;
-         border-right: 5px solid #d8d8d8;
-         border-left: 5px solid #d8d8d8;
-     }
-    h1 {
-        width: 60%;
-        margin: 100px auto 35px auto;
-    }
+    h1,h2,h3,h4,h5,h6{
+        font-family: 'Roboto Condensed', sans-serif;
     }
 
-    .exit {
-        position: relative;
-        height: 50px;
-    &:before,
-    &:after {
-         content: "EXIT";
-         font-size: 14px;
-         line-height: 18px;
-         padding: 0px 2px;
-         font-family: "Arial Narrow", Arial, sans-serif;
-         display: block;
-         position: absolute;
-         background: green;
-         color: white;
-         top: 50%;
-         transform: translate(0, -50%);
-     }
-    &:before {
-         left: 0;
-     }
-    &:after {
-         right: 0;
-     }
+
+    h1{
+        font-size:40px;
+        text-align:center;
+        font-family: 'Droid Sans', sans-serif;
     }
 
-    .fuselage {
-        border-right: 5px solid #d8d8d8;
-        border-left: 5px solid #d8d8d8;
+
+    div#parentHorizontalTab {
+        padding: 0 5%;
+        width:90%!important;
+    }
+    ul.resp-tabs-list, p {
+        margin: 0px;
+        padding: 0px;
     }
 
-    ol {
-        list-style :none;
-        padding: 0;
-        margin: 0;
+    .resp-tabs-list li {
+        font-weight: 600;
+        font-size: 13px;
+        display: inline-block;
+        padding: 13px 15px;
+        margin: 0 4px 0 0;
+        list-style: none;
+        cursor: pointer;
+        float: left;
     }
 
-    .row {
-
+    .resp-tabs-container {
+        padding: 0px;
+        background-color:transparent;
+        clear: left;
     }
 
-    .seats {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-    }
-
-    .seat {
-        display: flex;
-        flex: 0 0 14.28571428571429%;
+    h2.resp-accordion {
+        cursor: pointer;
         padding: 5px;
-        position: relative;
-    &:nth-child(3) {
-         margin-right: 14.28571428571429%;
-     }
-    input[type=checkbox] {
-        position: absolute;
-        opacity: 0;
+        display: none;
     }
-    input[type=checkbox]:checked {
-    + label {
-        background: #bada55;
-        -webkit-animation-name: rubberBand;
-        animation-name: rubberBand;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
+
+    .resp-tab-content {
+        display: none;
+        padding: 15px;
     }
+    .resp-tab-active {
+        border: 1px solid #5AB1D0 !important;
+        border-bottom: none;
+        margin-bottom: -1px !important;
+        padding: 12px 14px 14px 14px !important;
+        border-top: 4px solid #000 !important;
+        border-bottom: 0px #fff solid !important;
     }
-    input[type=checkbox]:disabled {
-    + label {
-        background: #dddddd;
-        text-indent: -9999px;
-        overflow: hidden;
-    &:after {
-         content: "X";
-         text-indent: 0;
-         position: absolute;
-         top: 4px;
-         left: 50%;
-         transform: translate(-50%, 0%);
-     }
-    &:hover {
-         box-shadow: none;
-         cursor: not-allowed;
-     }
+
+    .resp-tab-active {
+        border-bottom: none;
+        background-color: #fff;
     }
-    }
-    label {
+
+    .resp-content-active, .resp-accordion-active {
         display: block;
-        position: relative;
-        width: 100%;
+    }
+
+    .resp-tab-content {
+        border: 1px solid #c1c1c1;
+        border-top-color: #5AB1D0;
+    }
+
+    h2.resp-accordion {
+        font-size: 13px;
+        border: 1px solid #c1c1c1;
+        border-top: 0px solid #c1c1c1;
+        margin: 0px;
+        padding: 10px 15px;
+    }
+
+    h2.resp-tab-active {
+        border-bottom: 0px solid #c1c1c1 !important;
+        margin-bottom: 0px !important;
+        padding: 10px 15px !important;
+    }
+
+    h2.resp-tab-title:last-child {
+        border-bottom: 12px solid #c1c1c1 !important;
+        background: blue;
+    }
+    a.back{
+        padding:10px;
+        background:#3b85d5;
+        color:white;
+        display:inline-block;
+        text-decoration:none;
+        margin: 10px;
+
+    }
+    .tab1 input[type="text"]{
+        width:90%;
+        padding:10px;
+        margin:20px 0px 0px 0px;
+        background:transparent;
+        border:1px solid black;
+    }
+    select.month{
+        margin: 10px 0px 0px 0px;
+        padding:5px;
+        background:transparent;
+        border:1px solid #000;
+        /*-- w3layouts --*/
+    }
+    select.year {
+        margin: 10px 0px 0px 0px;
+        padding:5px;
+        background:transparent;
+        border:1px solid #000;
+    }
+    .tab1 p{
+        margin-top:20px;
+        font-size:14px;
+        text-transform:uppercase;
+    }
+    .tab1 input.cvv {
+        width: 11%;
+        margin-right: 5em;
+        padding: 6px;
+    }
+    input.go-to-pay {
         text-align: center;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 1.5rem;
-        padding: 4px 0;
-        background: #F42536;
-        border-radius: 5px;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-
-    &:before {
-         content: "";
-         position: absolute;
-         width: 75%;
-         height: 75%;
-         top: 1px;
-         left: 50%;
-         transform: translate(-50%, 0%);
-         background: rgba(255,255,255,.4);
-         border-radius: 3px;
-     }
-    &:hover {
-         cursor: pointer;
-         box-shadow: 0 0 0px 2px #5C6AFF;
-     }
-
+        color: #fff;
+        padding: 7px 10px;
+        background: #0E2075;
+        display: block;
+        font-size: 0.875em;
+        font-weight: 500;
+        text-decoration: none;
+        border: none;
+        display:inline-block;
+        margin:15px 0px 0px 0px;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        cursor:pointer;
     }
+    .tab2 h3{
+        margin:0;
+        padding:15px 0px 10px 0px;
+        color:#000;
+        font-size:14px;
+        font-weight:400;
     }
-
-    @-webkit-keyframes rubberBand {
-        0% {
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-        }
-
-        30% {
-            -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
-        }
-
-        40% {
-            -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
-        }
-
-        50% {
-            -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
-        }
-
-        65% {
-            -webkit-transform: scale3d(.95, 1.05, 1);
-            transform: scale3d(.95, 1.05, 1);
-        }
-
-        75% {
-            -webkit-transform: scale3d(1.05, .95, 1);
-            transform: scale3d(1.05, .95, 1);
-        }
-
-        100% {
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-        }
+    select.bank {
+        margin: 10px 0px 0px 0px;
+        padding:10px 0px;
+        background:transparent;
+        border:1px solid #000;
+        width:100%;
     }
+    .tab2 input[type="text"]{
+        width:93%;
+        /*-- agileits --*/
+        margin:2px 0px;
+        padding:10px;
+        background:transparent;
+        border:1px solid #000;
+    }
+    .tab2 input[type="password"]{
+        width:93%;
+        padding:10px;
+        background:transparent;
 
-    @keyframes rubberBand {
-        0% {
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-        }
+        border:1px solid #000;
+    }
+    .tab2 input[type="submit"] {
+        background: black;
+        color: white;
+        border: none;
+        padding: 10px 35px;
+        margin: 15px 0px 0px 0px;
+        cursor:pointer;
+    }
+    .tab3 h3{
+        font-size:15px;
+        padding:0;
+        color:white;
+    }
+    .tab3 h4{
+        color:#000;
+        padding:0px;
+        font-weight:400;
+        margin:20px 0px 10px 0px;
+        font-size:14px;
+    }
+    .tab3 input[type="text"]{
+        width:80%;
+        padding:10px;
+        background:transparent;
 
-        30% {
-            -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
-        }
+        border:1px solid #000;
+    }
+    .tab3 input[type="password"]{
+        width:80%;
+        padding:10px;
+        background:transparent;
 
-        40% {
-            -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
-        }
-
-        50% {
-            -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
-        }
-
-        65% {
-            -webkit-transform: scale3d(.95, 1.05, 1);
-            transform: scale3d(.95, 1.05, 1);
-        }
-
-        75% {
-            -webkit-transform: scale3d(1.05, .95, 1);
-            transform: scale3d(1.05, .95, 1);
-        }
-
-        100% {
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-        }
+        border:1px solid #000;
+    }
+    .tab3 input[type="submit"] {
+        background: black;
+        color: white;
+        /*-- w3layouts --*/
+        border: none;
+        padding: 10px 35px;
+        margin: 15px 0px 0px 0px;
+        cursor:pointer;
     }
 
-    .rubberBand {
-        -webkit-animation-name: rubberBand;
-        animation-name: rubberBand;
+
+
+
+    .clearfix{
+        clear:both;
     }
+    ul.tabs-menu{
+        margin-left:1em;
+        padding:0;
+    }
+    ul.tabs-menu li{
+        display:inline-block;
+        float:left;
+    }
+
+    ul.tabs-menu li a.special{
+        border:none;
+
+    }
+    ul.tabs-menu li a.special:focus {
+        border: none;
+    }
+    .carousel-inner {
+        margin-top:15px;
+    }
+    .latest img{width:100%;}
+
+
+    .tab-grid h4{
+        color:#fff;
+        margin-top: 25px;
+        font-size: 20px;
+    }
+    .tab-grid h3{
+        font-size:1em;
+        margin:0;
+        padding:2em 0 0.5em;
+        font-weight:400;
+        color:#fff;
+        text-transform:uppercase;
+    }
+    .tab-grid p{
+        color:#777;
+        line-height:1.7em;
+        font-size:0.875em;
+    }
+    .modal-content h3{
+        color:black;
+    }
+    .tabs-box{
+        width: 60%;
+        margin: 1em auto;
+
+    }
+    .tab-grids{
+        padding:0 1em;
+        margin:1em 0 0 0;
+    }
+
+    .carousel-indicators li {
+
+        background-color: #000;
+        border: 1px solid #fff;
+
+    }
+    .carousel-inner .item img{
+        width:1200px;
+
+    }
+
+    .movie1{
+
+        float:left;
+
+    }
+    .movie2{
+        float:left;
+        margin-left:24px;
+    }
+    .movie3{
+        margin-left:24px;
+        float:left;
+    }
+    .movie4{
+        margin-left:24px;
+        float:left;
+
+    }
+    #tab2 img{
+        width:100%;
+    }
+    #tab2 h3{
+        margin:0;
+        padding:0;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th{
+        padding: 3px 24px;
+        text-align: left;
+        font-size:12px;
+    }
+    td {
+        padding: 3px 18px;
+        text-align: left;
+        font-size:12px;
+    }
+    table tr:nth-child(even) {
+        background-color: #eee;
+    }
+    table tr:nth-child(odd) {
+        background-color:#FFFAFA;
+
+    }
+    table th	{
+        background-color: black;
+        color: white;
+    }
+    tr td a {
+        padding: 5px;
+        margin: 10px 2px;
+        background: #337AB7;
+        color: #fff!important;
+        display:block;
+    }
+    tr td a :focus{
+        background: #1E29B5!important;
+        color: white!important;
+    }
+
+
+
+    /*-- tabs-responsive --*/
+    @media(max-width:768px){
+        .tabs-box{
+            width:95%;
+        }
+        ul.tabs-menu li a {
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: ;
+            color: #FFF;
+            display:block;
+            border-right: 1px solid #000;
+            padding: 1.2em 3.3em;
+        }
+        ul.tabs-menu li a:focus {
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: ;
+
+            color: #FFF;
+            display:block;
+            border-right: 1px solid #000;
+            padding: 1.2em 3.3em;
+        }
+        .latest h3{
+            font-size:20px;
+            padding-bottom:21px;
+        }
+        .lm1{
+            float:left;
+            width: 30%;
+        }
+        .lm2{
+            float:left;
+            margin-left: 28px;
+            width: 30%;
+        }
+        .lm3{
+            float:left;
+            margin-left: 28px;
+            width: 30%;
+        }
+        th{
+            padding: 15px 75px;
+            text-align: left;
+            font-size:16px;
+        }
+        td {
+            padding: 15px 75px;
+            text-align: left;
+            font-size:16px;
+        }
+
+
+
+
+    }
+
 </style>
+<html>
 
-<div class="plane">
-    <div class="cockpit">
-        <h1>Please select a seat</h1>
-    </div>
-    <div class="exit exit--front fuselage">
+<body class="inner">
+<!----- tabs-box ---->
+<div class="tabs-box">
+    <ul class="tabs-menu">
+        <li><a href="#tab1">HOME</a></li>
+        <li><a href="#tab2">MOVIES</a></li>
+        <li><a href="#tab3">SHOWTIMES</a></li>
+        <li><a href="#tab4">LOGIN</a></li>
+        <li><a href="#tab5" class="special">Signup</a></li>
+        <div class="clearfix"></div>
+    </ul>
+    <div class="clearfix"> </div>
+    <div class="tab-grids">
+        <div id="tab1" class="tab-grid">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>
 
-    </div>
-    <ol class="cabin fuselage">
-        <li class="row row--1">
-            <ol class="seats" type="A">
-                <li class="seat">
-                    <input type="checkbox" id="1A" />
-                    <label for="1A">1A</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="1B" />
-                    <label for="1B">1B</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="1C" />
-                    <label for="1C">1C</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" disabled id="1D" />
-                    <label for="1D">Occupied</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="1E" />
-                    <label for="1E">1E</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="1F" />
-                    <label for="1F">1F</label>
-                </li>
-            </ol>
-        </li>
-        <li class="row row--2">
-            <ol class="seats" type="A">
-                <li class="seat">
-                    <input type="checkbox" id="2A" />
-                    <label for="2A">2A</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="2B" />
-                    <label for="2B">2B</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="2C" />
-                    <label for="2C">2C</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="2D" />
-                    <label for="2D">2D</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="2E" />
-                    <label for="2E">2E</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="2F" />
-                    <label for="2F">2F</label>
-                </li>
-            </ol>
-        </li>
-        <li class="row row--3">
-            <ol class="seats" type="A">
-                <li class="seat">
-                    <input type="checkbox" id="3A" />
-                    <label for="3A">3A</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="3B" />
-                    <label for="3B">3B</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="3C" />
-                    <label for="3C">3C</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="3D" />
-                    <label for="3D">3D</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="3E" />
-                    <label for="3E">3E</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="3F" />
-                    <label for="3F">3F</label>
-                </li>
-            </ol>
-        </li>
-        <li class="row row--4">
-            <ol class="seats" type="A">
-                <li class="seat">
-                    <input type="checkbox" id="4A" />
-                    <label for="4A">4A</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="4B" />
-                    <label for="4B">4B</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="4C" />
-                    <label for="4C">4C</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="4D" />
-                    <label for="4D">4D</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="4E" />
-                    <label for="4E">4E</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="4F" />
-                    <label for="4F">4F</label>
-                </li>
-            </ol>
-        </li>
-        <li class="row row--5">
-            <ol class="seats" type="A">
-                <li class="seat">
-                    <input type="checkbox" id="5A" />
-                    <label for="5A">5A</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="5B" />
-                    <label for="5B">5B</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="5C" />
-                    <label for="5C">5C</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="5D" />
-                    <label for="5D">5D</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="5E" />
-                    <label for="5E">5E</label>
-                </li>
-                <li class="seat">
-                    <input type="checkbox" id="5F" />
-                    <label for="5F">5F</label>
-                </li>
-            </ol>
-        </li>
-    </ol>
-    </div>
+
+                <div id="tab3" class="tab-grid">
+                    <table>
+                        <tr>
+                            <th>Theatre</th>
+                            <th>Address</th>
+                            <th>SHOWTIME</th>
+                        </tr>
+                        <tr>
+                            <td>CORALINE</td>
+                            <td>SCREEN1</td>
+                            <td><a href="seatselection.html">11:00 AM</a><a href="seatselection.html">02:00 PM</a><a href="seatselection.html">07:00 PM</a></td>
+                        </tr>
+                        <tr>
+                            <td>BRAVE</td>
+                            <td>SCREEN2</td>
+                            <td><a href="seatselection.html">02:00 PM</a><a href="seatselection.html">07:00 PM</a></td>
+                        </tr>
+                        <tr>
+                            <td>HERCULES</td>
+                            <td>SCREEN3</td>
+                            <td><a href="seatselection.html">11:00 AM</a><a href="seatselection.html">07:00 PM</a><a href="seatselection.html">11:00 PM</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>KI&KA</td>
+                            <td>SCREEN2</td>
+                            <td><a href="seatselection.html">07:30 AM</a><a href="seatselection.html">11:00 AM</a><a href="seatselection.html">11:00 PM</a></td>
+                        </tr>
+
+                    </table>
+                </div>
+</body>
+</html>

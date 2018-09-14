@@ -1,29 +1,34 @@
 package com.movieticket.booking.models;
 
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
-//@Entity
 public class Theatre {
 
-    @NotNull
-//    @Column(name="theatrename")
     private String theatreName;
-    @NotNull
-//    @Column(name="city")
+
     private String city;
-    @NotNull
-//    @Column(name="zipcode")
+
     private int zipcode;
+
+    private String time;
+
 
     public Theatre() {
     }
 
-    public Theatre(String theatreName, String city, int zipcode) {
+
+    public Theatre(String theatreName, String city, int zipcode, String time) {
         this.theatreName = theatreName;
         this.city = city;
         this.zipcode = zipcode;
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getTheatreName() {
