@@ -202,6 +202,36 @@
     .content{
         color: #D53233;
     }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 30px 50px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color:#567 ;
+    }
 
 
 </style>
@@ -217,7 +247,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="inner">
+<!----- tabs-box ---->
+<div class="tabs-box">
+    <ul class="tabs-menu">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/registration" class="special">SIGNUP</a></li>
+        <div class="clearfix"></div>
+    </ul>
+
 
 <div class="content">
 
