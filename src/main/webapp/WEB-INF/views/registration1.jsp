@@ -63,7 +63,7 @@
     }
     .w3l_but {
         text-align: center;
-        margin:20px 0px;
+        margin:0px 10px;
     }
     .agile_ihj {
         text-align: right;
@@ -249,11 +249,14 @@
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color:#567 ;
+
+    .register{
+        color:Pink;
+        text-align:center;
     }
-
-
+    .w3l_but{
+        background-color:Black;
+    }
 </style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -270,9 +273,9 @@
         <div class="clearfix"></div>
     </ul>
 
-<div class="container">
-    <form:form action="/registration" method="post" modelAttribute="customer">
-        <h2>Registration Form</h2>
+    <div class="container">
+        <form:form action="/registration" method="post" modelAttribute="customer">
+        <div class="register">  <h2>Registration Form</h2></div>
         <div class="agileinfo">
             <input type="text" name="firstName" placeholder="First Name" >
             <form:errors cssClass="error" path="firstName"/>
@@ -296,16 +299,18 @@
         <div class="w3l_but">
             <button type="submit">REGISTER</button>
         </div>
-    </form:form>
-    <div class="wthree_down">
-        <h3>Already had an Account please Login</h3>
-    </div>
-    <div class="w3agile_side">
-        <div class="main">
-            <div class="panel">
-                <a href="/login" id="login_pop">LOGIN</a>
-                </form>
-            </div>
+        </form:form>
+        <div class="wthree_down">
+            <h3>Already had an Account?</h3>
         </div>
+        <div class="w3agile_side">
+            <div class="main">
+                <div class="panel">
+                    <a href="/login" id="login_pop">LOGIN</a>
+                    </form>
+                </div>
+            </div>
 </body>
 </html>
+
+

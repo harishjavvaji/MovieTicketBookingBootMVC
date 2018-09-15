@@ -676,6 +676,7 @@
     <!-- Total-Price-Starts-Here -->
 
     <!-- Checkout-Starts-Here -->
+</br>
     <div class="checkout">
 
 

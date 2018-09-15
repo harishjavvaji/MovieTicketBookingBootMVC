@@ -312,6 +312,26 @@
             font-size: .8em
         }
     }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 30px 50px;
+        text-decoration: none;
+    }
+
 
 </style>
 <!--Author: W3layouts
@@ -358,6 +378,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 });
 </script>
 <body>
+<div class="tabs-box">
+    <ul class="tabs-menu">
+        <li><a href="loginHome.jsp">HOME</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/viewtickets">VIEW BOOKING</a></li>
+        <li><a href="/logout" class="special">LOG OUT</a></li>
+        <div class="clearfix"></div>
+    </ul>
+</div>
+
 <!---header--->
 <div class="header">
     <h1>Summary of Booking</h1>
@@ -377,10 +407,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
             <div class="product-right1">
-                <p>${movie.getMovieName()}</p>
-                <p>${movie.getActorName()}</p>
-                <p>${movie.getGenre()}</p>
-                <p>${movie.getLength()}</p>
+                <p>MovieName: ${movie.getMovieName()}</p>
+                <p>ActorName:${movie.getActorName()}</p>
+                <p>Genre:${movie.getGenre()}</p>
+                <p>MovieLength:${movie.getLength()}</p>
 
 
                 <div class="close"> </div>
@@ -417,11 +447,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
             <div class="product-right1">
-                <p>${ticket.getNumberOfAdultTickets()}</p>
-                <p>${ticket.getAdultTicketPrice()}</p>
-                <p>${ticket.getNumberOfChildTickets()}</p>
-                <p>${ticket.getChildTicketPrice()}</p>
-                <p>${ticket.getTotalPrice()}</p>
+                <p>AdultTickets:${ticket.getNumberOfAdultTickets()}</p>
+                <p>Price:${ticket.getAdultTicketPrice()}</p>
+                <p>ChildTickets:${ticket.getNumberOfChildTickets()}</p>
+                <p>Price:${ticket.getChildTicketPrice()}</p>
+                <p>Tital:${ticket.getTotalPrice()}</p>
 
 
 

@@ -80,9 +80,28 @@
     #dateNote{
         font-size: 9px;
     }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 30px 50px;
+        text-decoration: none;
+    }
+
 
 </style>
-
 
 
 <div id="container">
