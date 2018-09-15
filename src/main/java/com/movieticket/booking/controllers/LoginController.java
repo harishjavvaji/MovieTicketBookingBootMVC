@@ -39,12 +39,6 @@ public class LoginController {
     @RequestMapping(value = "/validateLogin", method = RequestMethod.POST)
     public ModelAndView validateLogin(@Validated @ModelAttribute("customer") Customer customer, BindingResult errors) {
 
-        System.out.println("Hai");
-        System.out.println(errors.getErrorCount());
-
-
-
-        System.out.println(customer.getUserName() + customer.getPassword());
         if (errors.hasErrors()) {
 
             return new ModelAndView("login1");
