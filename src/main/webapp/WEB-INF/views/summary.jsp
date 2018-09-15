@@ -312,6 +312,26 @@
             font-size: .8em
         }
     }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color:;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 30px 50px;
+        text-decoration: none;
+    }
+
 
 </style>
 <!--Author: W3layouts
@@ -358,6 +378,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 });
 </script>
 <body>
+<div class="tabs-box">
+    <ul class="tabs-menu">
+        <li><a href="loginHome.jsp">HOME</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/viewtickets">VIEW BOOKING</a></li>
+        <li><a href="/logout" class="special">LOG OUT</a></li>
+        <div class="clearfix"></div>
+    </ul>
+</div>
+
 <!---header--->
 <div class="header">
     <h1>Summary of Booking</h1>
@@ -369,26 +399,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="product-section">
             <div class="product-top">
                 <div class="product-left">
-                    <img src="images/p1.jpg">
+                    <img src="${movie.getImage()}">
                 </div>
                 <div class="product-right">
                     <h2>Movie Details</h2>
-
-
                 </div>
             </div>
 
             <div class="product-right1">
-                <p>$029,10<p>
+                <p>MovieName: ${movie.getMovieName()}</p>
+                <p>ActorName:${movie.getActorName()}</p>
+                <p>Genre:${movie.getGenre()}</p>
+                <p>MovieLength:${movie.getLength()}</p>
+
+
                 <div class="close"> </div>
             </div>
             <div class="clear"></div>
         </div>
         <div class="product1">
             <div class="product-top">
-                <div class="product-left">
-                    <img src="images/p2.jpg">
-                </div>
+
                 <div class="product-right">
                     <h2>Theatre Details</h2>
 
@@ -397,6 +428,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
             <div class="product-right1">
+                <p>${theatre.getTheatreName()}<p>
+                <p>${theatre.getCity()}<p>
+                <p>${theatre.getZipcode()}<p>
+                <p>${theatre.getTime()}</p>
 
                 <div class="close1"> </div>
             </div>
@@ -404,9 +439,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="product2">
             <div class="product-top">
-                <div class="product-left">
-                    <img src="images/p3.jpg">
-                </div>
+
                 <div class="product-right">
                     <h2>Payment Details</h2>
 
@@ -414,6 +447,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
 
             <div class="product-right1">
+                <p>AdultTickets:${ticket.getNumberOfAdultTickets()}</p>
+                <p>Price:${ticket.getAdultTicketPrice()}</p>
+                <p>ChildTickets:${ticket.getNumberOfChildTickets()}</p>
+                <p>Price:${ticket.getChildTicketPrice()}</p>
+                <p>Tital:${ticket.getTotalPrice()}</p>
+
+
 
                 <div class="close2"> </div>
             </div>
@@ -421,11 +461,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="product-bottom">
 
-            <a href="#">Cancel</a>
+            <a href="#">Cancel Ticket</a>
             <div class="clear">
             </div>
         </div>
     </div>
+</div>
 
 
     <!---main--->

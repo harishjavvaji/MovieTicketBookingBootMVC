@@ -22,7 +22,7 @@
     nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
     img{max-width:100%;}
     body{
-        background-image:url(https://img.freepik.com/vector-gratis/teatro-escenario-rojo-cortinas-vector-realista_1441-761.jpg?size=664&ext=jpg);
+        background-image:url(https://www.landhaus-alte-eichen.de/images/specials/roterVorhang.jpg);
     }
     h1,h2,h3,h4,h5,h6{
         font-family: 'Roboto Condensed', sans-serif;
@@ -280,14 +280,11 @@
         display: block;
         color: white;
         text-align: center;
-        padding: 30px 50px;
+        padding: 30px 80px;
         text-decoration: none;
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color:#567 ;
-    }
 
 </style>
 <html>
@@ -320,3 +317,4 @@
 </div>
 </body>
 </html>
+
