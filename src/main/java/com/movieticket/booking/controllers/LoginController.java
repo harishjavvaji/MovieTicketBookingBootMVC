@@ -47,7 +47,7 @@ public class LoginController {
         Boolean validation = loginService.validateLogin(customer);
 
         if (validation.equals(true)) {
-            return new ModelAndView("loginHome");
+            return new ModelAndView("loginHome1");
 
         }else {
             ModelAndView modelAndView = new ModelAndView("login1");

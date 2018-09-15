@@ -296,11 +296,10 @@
 <!----- tabs-box ---->
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="#tab1">Home</a></li>
-        <li><a href="#tab2">MOVIES</a></li>
-        <li><a href="#tab3">Theatres</a></li>
-        <li><a href="#tab4">View Booking</a></li>
-        <li><a href="#tab5" class="special">Cancel Booking</a></li>
+        <li><a href="loginHome.jsp">Home</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/viewTickets">View Booking</a></li>
+        <li><a href="/logout" class="special">Log Out</a></li>
         <div class="clearfix"></div>
     </ul>
     <div class="clearfix"> </div>

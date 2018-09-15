@@ -13,16 +13,49 @@ public class Ticket {
 
     private final double childTicketPrice = 8.75;
 
-    private int totalPrice;
+    private double totalPrice;
 
-    public Ticket(int id, int numberOfAdultTickets, int numberOfChildTickets, int totalPrice) {
+    private String userName;
+
+    private String movieName;
+
+    private String theatreName;
+
+    public Ticket(int id, int numberOfAdultTickets, int numberOfChildTickets, double totalPrice, String userName, String movieName, String theatreName) {
         this.id = id;
         this.numberOfAdultTickets = numberOfAdultTickets;
         this.numberOfChildTickets = numberOfChildTickets;
         this.totalPrice = totalPrice;
+        this.userName = userName;
+        this.movieName = movieName;
+        this.theatreName = theatreName;
     }
 
     public Ticket() {
+    }
+
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public String getTheatreName() {
+        return theatreName;
+    }
+
+    public void setTheatreName(String theatreName) {
+        this.theatreName = theatreName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getId() {
@@ -57,11 +90,11 @@ public class Ticket {
         return childTicketPrice;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }
