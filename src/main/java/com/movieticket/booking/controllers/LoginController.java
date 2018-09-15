@@ -26,9 +26,14 @@ public class LoginController {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login1");
-        modelAndView.addObject(new Customer());
+        model.addAttribute("customer", new Customer());
         return modelAndView;
 
+    }
+
+    @ModelAttribute("customer")
+    public Customer  setupCustomer() {
+        return new Customer();
     }
 
     @RequestMapping(value = "/validateLogin", method = RequestMethod.POST)

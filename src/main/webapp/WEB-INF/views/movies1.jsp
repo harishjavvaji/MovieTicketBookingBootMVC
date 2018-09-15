@@ -238,10 +238,12 @@
                 <p><span>Genre</span>${movie1.getGenre()}</p>
                 <p><span>Movie Length</span>${movie1.getLength()}</p>
                 <p><span>Availability</span>yes</p>
+
                 <form:input path="movieName" type="hidden" value="${movie1.getMovieName()}" name="movieName"/>
                 <form:input path="actorName" type="hidden" value="${movie1.getActorName()}" name="actorName"/>
                 <form:input path="genre" type="hidden" value="${movie1.getGenre()}" name="genre"/>
                 <form:input path="length" type="hidden" value="${movie1.getLength()}" name="length"/>
+                <form:input path="image" type="hidden" value="${movie1.getImage()}" name="image"/>
 
 
                 <div class="clear"></div>
