@@ -42,6 +42,7 @@
         -webkit-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
+
         -ms-transition: 0.5s all;
     }
 
@@ -119,10 +120,6 @@
         -o-transition: color 0.2s ease-in-out;
         transition: color 0.2s ease-in-out;
     }
-    .image1, .image2, .image3 {
-        width: 20%;
-        float: center;
-    }
     img {
         padding-left: 20px;
     }
@@ -161,6 +158,7 @@
     .total {
         padding: 0 30px;
         margin: 10px 0;
+        color: deeppink;
     }
     .total1, .total2 {
         width: 50%;
@@ -170,7 +168,8 @@
         color: #47484A;
     }
     .total2 {
-        text-align: right;
+        text-align: left;
+        color: white;
     }
 
     .checkout {
@@ -294,6 +293,7 @@
         }
         .total {
             margin: 0px 60px;
+            color: #4CAF50;
         }
         .copyright {
             margin-top: 55px;
@@ -421,6 +421,7 @@
         }
         .total1, .total2 {
             font-size: 20px;
+            color: darkturquoise;
         }
         .discount input[type="text"] {
             margin-left: 5px;
@@ -488,7 +489,7 @@
         }
         .quantity1 input[type="number"], .quantity2 input[type="number"], .quantity3 input[type="number"] {
             margin-top: 3px;
-            padding: 5px 0px;
+            padding: 10px 10px;
             font-size: 12px;
             margin-left: 5px;
         }
@@ -499,7 +500,8 @@
             top: 11px;
         }
         .total {
-            padding: 10 10px;
+            padding: 10px;
+            color: darkturquoise;
         }
         .add a {
             margin-left: 5px;
@@ -534,6 +536,7 @@
         }
         .total {
             padding: 0 00px;
+            color: #1E29B5;
         }
         .checkout {
             padding-bottom: 15px;
@@ -624,7 +627,7 @@
         <div class="clear"></div>
     </div>
     <!-- //Mainbar-Ends-Here -->
-
+<form action="/payment" method="get">
     <!-- Items-Starts-Here -->
     <div class="items">
 
@@ -637,12 +640,10 @@
                     <p>Child</p>
                 </div>
                 <div class="quantity1">
-                    <form action="action_page.php">
-                        <input type="number" name="quantity" min="1" max="10" value="1">
-                    </form>
+                        <input type="number" name="numberOfChildTickets" min="0" max="10" value="0">
                 </div>
                 <div class="price1">
-                    <p>$ 21</p>
+                    <p>$ ${ticket.getChildTicketPrice()}</p>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -655,64 +656,36 @@
                 <!-- Remove-Item --><div class="alert-close2"> </div><!-- //Remove-Item -->
 
                 <div class="title2">
-                    <p>         Adult</p>
+                    <p>Adult</p>
                 </div>
                 <div class="quantity2">
-                    <form action="action_page.php">
-                        <input type="number" name="quantity" min="1" max="10" value="1">
-                    </form>
+
+                        <input type="number" name="numberOfAdultTickets" min="1" max="10" value="1">
                 </div>
                 <div class="price2">
-                    <p>$ 12</p>
+                    <p>$ ${ticket.getAdultTicketPrice()}</p>
                 </div>
                 <div class="clear"></div>
             </div>
         </div>
         <!-- //Item2-Ends-Here -->
 
-        <!-- Item3-Starts-Here -->
-        <div class="item3">
-            <div class="close3">
-                <!-- Remove-Item --><div class="alert-close3"> </div><!-- //Remove-Item -->
-
-                <div class="title3">
-                    <p>Senior</p>
-                </div>
-                <div class="quantity3">
-                    <form action="action_page.php">
-                        <input type="number" name="quantity" min="1" max="10" value="1">
-                    </form>
-                </div>
-                <div class="price3">
-                    <p>$ 169</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <!-- //Item3-Ends-Here -->
-
     </div>
     <!-- //Items-Ends-Here -->
 
     <!-- Total-Price-Starts-Here -->
-    <div class="total">
-        <div class="total1">Total Price</div>
-        <div class="total2">$ 924</div>
-        <div class="clear"></div>
-    </div>
-    <!-- //Total-Price-Ends-Here -->
 
     <!-- Checkout-Starts-Here -->
     <div class="checkout">
 
 
         <div class="checkout-btn">
-            <a href="#">Checkout</a>
+            <input type="submit" class="checkout-btn" value="Proceed to checkout">
         </div>
         <div class="clear"></div>
     </div>
     <!-- //Checkout-Ends-Here -->
-
+</form>
 </div>
 <!-- Content-Ends-Here -->
 
