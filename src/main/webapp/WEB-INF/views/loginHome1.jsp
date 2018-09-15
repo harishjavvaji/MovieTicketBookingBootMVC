@@ -298,7 +298,7 @@
     <ul class="tabs-menu">
         <li><a href="loginHome.jsp">Home</a></li>
         <li><a href="/movies">MOVIES</a></li>
-        <li><a href="/viewTickets">View Booking</a></li>
+        <li><a href="/viewtickets">View Booking</a></li>
         <li><a href="/logout" class="special">Log Out</a></li>
         <div class="clearfix"></div>
     </ul>
