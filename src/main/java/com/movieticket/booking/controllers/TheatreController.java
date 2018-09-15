@@ -11,10 +11,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@SessionAttributes
+@SessionAttributes("theatre")
 public class TheatreController {
     @Autowired
     RestTemplate restTemplate;
+
     @RequestMapping(value = "/theatres", method = RequestMethod.GET)
     public ModelAndView viewAllTheatres(Model model) {
         ModelAndView modelAndView = new ModelAndView("theatre1");
@@ -35,6 +36,8 @@ public class TheatreController {
         return modelAndView;
 
     }
+
+
 
     @RequestMapping(value = "/booktheatre", method = RequestMethod.POST)
     public ModelAndView bookMovie(@ModelAttribute("theatre") Theatre theatre) {
