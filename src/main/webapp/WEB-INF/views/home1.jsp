@@ -296,11 +296,10 @@
 <!----- tabs-box ---->
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="#tab1">HOME</a></li>
-        <li><a href="#tab2">MOVIES</a></li>
-        <li><a href="#tab3">SHOWTIMES</a></li>
-        <li><a href="#tab4">LOGIN</a></li>
-        <li><a href="#tab5" class="special">SIGNUP</a></li>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/registration" class="special">SIGNUP</a></li>
         <div class="clearfix"></div>
     </ul>
     <div class="clearfix"> </div>
@@ -315,5 +314,9 @@
                     <li data-target="#myCarousel" data-slide-to="3"></li>
                 </ol>
                 <img  src="http://4.bp.blogspot.com/-hgCC8bGQGlE/UoXSMEiZubI/AAAAAAAAAdo/1vKKT0rWZvw/s1600/logo+m.png"class="center" >
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

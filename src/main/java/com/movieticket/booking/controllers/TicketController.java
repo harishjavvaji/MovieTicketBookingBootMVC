@@ -1,17 +1,13 @@
 package com.movieticket.booking.controllers;
 
-import com.movieticket.booking.models.Customer;
-import com.movieticket.booking.models.Movie;
 import com.movieticket.booking.models.Theatre;
 import com.movieticket.booking.models.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.WebParam;
@@ -39,7 +35,7 @@ public class TicketController {
             return loginController.viewLogin(model);
 
         } else {
-            modelAndView.setViewName("payment1");
+            modelAndView.setViewName("payment2");
             modelAndView.addObject(theatre);
             return modelAndView;
         }
