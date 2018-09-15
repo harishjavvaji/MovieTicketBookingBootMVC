@@ -63,7 +63,7 @@
     }
     .w3l_but {
         text-align: center;
-        color:#fff;
+        color: #5AB1D0;
         margin:20px 0px;
     }
     .agile_ihj {
@@ -227,6 +227,10 @@
     .w3l_but{
         color:Blue;
     }
+    .total{
+        font-size: larger;
+        color: darkturquoise;
+    }
 
 </style>
 
@@ -234,22 +238,24 @@
 
 <body>
 
-
 <div class="container">
-    <form action="#" method="post">
+    <form action="/payment" method="post">
         <div class="payment"><h2>Payment Form</h2></div>
         <div class="agileinfo">
-            <input type="text" name="Name on Card" placeholder="Name on Card" required="">
+            <input type="text" name="cardHolderName" placeholder="Name on Card" required="">
         </div>
         <div class="agileinfo">
-            <input type="text" name="Card Number" placeholder="Card Number" required="">
+            <input type="text" name="cardNumber" placeholder="Card Number" required="">
         </div>
 
         <div class="agileinfo">
-            <input type="text" name="Month" placeholder="Month" required="">
+            <input type="text" name="month" placeholder="Month" required="">
         </div>
         <div class="agileinfo">
-            <input type="text" name="Year" placeholder="Year" required="">
+            <input type="text" name="year" placeholder="Year" required="">
+        </div>
+        <div class="payment">
+                <div class="total">Total Price : ${ticket.getTotalPrice()}</div>
         </div>
         <div class="w3l_but">
             <button type="submit">Payment</button>

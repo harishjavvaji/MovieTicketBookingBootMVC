@@ -13,7 +13,7 @@ public class Ticket {
 
     private final double childTicketPrice = 8.75;
 
-    private int totalPrice;
+    private double totalPrice;
 
     public Ticket(int id, int numberOfAdultTickets, int numberOfChildTickets, int totalPrice) {
         this.id = id;
@@ -57,11 +57,11 @@ public class Ticket {
         return childTicketPrice;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }
