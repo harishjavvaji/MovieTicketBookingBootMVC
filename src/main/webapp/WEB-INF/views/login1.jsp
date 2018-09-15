@@ -293,9 +293,7 @@
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color:#567 ;
-    }
+
 </style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -311,37 +309,39 @@
         <li><a href="/registration" class="special">SIGNUP</a></li>
         <div class="clearfix"></div>
     </ul>
-<div class="error">
-    ${validationError}
-</div>
-
-<div class="video-w3l" data-vide-bg="video/1">
-    <!-- title -->
-    <h1>
-        <span>L</span>ogin
-        <span>F</span>orm</h1>
-    <!-- //title -->
-    <!-- content -->
-    <div class="sub-main-w3">
-        <form:form action="/validateLogin" method="post" modelAttribute="customer">
-            <div class="form-style-agile">
-                <label>
-                    <i class="fas fa-user"></i>Username</label>
-                <form:input placeholder="Username" path="userName"  name="userName" type="text" required=""/>
-                <form:errors cssClass="error" path="userName"/>
-            </div>
-            <div class="form-style-agile">
-                <label>
-                    <i class="fas fa-unlock-alt"></i>Password</label>
-                <form:input placeholder="Password" path="password" name="password" type="password" required=""/>
-                <form:errors cssClass="error" path="password"/>
-            </div>
-            <!-- switch -->
-
-            <!-- //switch -->
-            <input type="submit" value="Log In">
-        </form:form>
+    <div class="error">
+        ${validationError}
     </div>
-</div>
+
+    <div class="video-w3l" data-vide-bg="video/1">
+        <!-- title -->
+        <h1>
+            <span>L</span>ogin
+            <span>F</span>orm</h1>
+        <!-- //title -->
+        <!-- content -->
+        <div class="sub-main-w3">
+            <form:form action="/validateLogin" method="post" modelAttribute="customer">
+                <div class="form-style-agile">
+                    <label>
+                        <i class="fas fa-user"></i>Username</label>
+                    <form:input placeholder="Username" path="userName"  name="userName" type="text" required=""/>
+                    <form:errors cssClass="error" path="userName"/>
+                </div>
+                <div class="form-style-agile">
+                    <label>
+                        <i class="fas fa-unlock-alt"></i>Password</label>
+                    <form:input placeholder="Password" path="password" name="password" type="password" required=""/>
+                    <form:errors cssClass="error" path="password"/>
+                </div>
+                <!-- switch -->
+
+                <!-- //switch -->
+                <input type="submit" value="Log In"> <input type="submit" value="SignUp">
+            </form:form>
+        </div>
+    </div>
 </body>
 </html>
+
+

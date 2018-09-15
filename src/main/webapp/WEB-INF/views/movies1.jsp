@@ -229,8 +229,9 @@
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color:#567 ;
+    .product-image{
+        width:200px;
+        height:200px;
     }
 
 
@@ -259,58 +260,59 @@
     </ul>
 
 
-<div class="content">
+    <div class="content">
 
-    <h1>Availablity of Movies</h1>
+        <h1>Availablity of Movies</h1>
 
-<c:forEach var="movie1" items="${moviesArray}">
-    <div class="container">
+        <c:forEach var="movie1" items="${moviesArray}">
+            <div class="container">
 
-        <form:form action="/bookmovie" method="post" modelAttribute="movie">
+                <form:form action="/bookmovie" method="post" modelAttribute="movie">
 
-        <div class="product">
-            <div class="product-image">
-                <img src=${movie1.getImage()} alt=${movie1.getMovieName()}>
+                    <div class="product">
+                        <div class="product-image">
+                            <img src=${movie1.getImage()} alt=${movie1.getMovieName()}>
+                        </div>
+                        <div class="product-info">
+                            <p><span>Movie Name</span>${movie1.getMovieName()}</p>
+                            <p><span>Actor Name</span>${movie1.getActorName()}</p>
+                            <p><span>Genre</span>${movie1.getGenre()}</p>
+                            <p><span>Movie Length</span>${movie1.getLength()}</p>
+                            <p><span>Availability</span>yes</p>
+
+                            <form:input path="movieName" type="hidden" value="${movie1.getMovieName()}" name="movieName"/>
+                            <form:input path="actorName" type="hidden" value="${movie1.getActorName()}" name="actorName"/>
+                            <form:input path="genre" type="hidden" value="${movie1.getGenre()}" name="genre"/>
+                            <form:input path="length" type="hidden" value="${movie1.getLength()}" name="length"/>
+                            <form:input path="image" type="hidden" value="${movie1.getImage()}" name="image"/>
+
+
+                            <div class="clear"></div>
+                            </p>
+
+
+                            <div class="cart"><button type="submit" class="btn btn-primary btn-lg">Book Now</button></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </form:form>
+
+
             </div>
-            <div class="product-info">
-                <p><span>Movie Name</span>${movie1.getMovieName()}</p>
-                <p><span>Actor Name</span>${movie1.getActorName()}</p>
-                <p><span>Genre</span>${movie1.getGenre()}</p>
-                <p><span>Movie Length</span>${movie1.getLength()}</p>
-                <p><span>Availability</span>yes</p>
+            </br>
 
-                <form:input path="movieName" type="hidden" value="${movie1.getMovieName()}" name="movieName"/>
-                <form:input path="actorName" type="hidden" value="${movie1.getActorName()}" name="actorName"/>
-                <form:input path="genre" type="hidden" value="${movie1.getGenre()}" name="genre"/>
-                <form:input path="length" type="hidden" value="${movie1.getLength()}" name="length"/>
-                <form:input path="image" type="hidden" value="${movie1.getImage()}" name="image"/>
+        </c:forEach>
 
-
-                <div class="clear"></div>
-                </p>
-
-
-                <div class="cart"><button type="submit" class="btn btn-primary btn-lg">Book Now</button></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        </form:form>
 
 
     </div>
-    </br>
-
-</c:forEach>
-
-
-
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
 </body>
 <!-- Body-Ends-Here -->
 
 </html>
+

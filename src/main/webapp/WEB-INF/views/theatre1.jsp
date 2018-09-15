@@ -88,9 +88,9 @@
 
     /* vertical align top */
     .underline {
-        padding-bottom: 5px;
-        border-bottom: 1px solid #eee;
-        margin: 0 0 20px 0;
+        padding-bottom: 0px;
+        border-bottom: 0px solid ;
+        margin: 0 0 0px 0;
     }
 
     /* Add 5px bottom padding and a underline */
@@ -124,7 +124,7 @@
 
     div#parentHorizontalTab {
         padding: 0 5%;
-        width: 90% !important;
+        width: 10% !important;
     }
 
     ul.resp-tabs-list, p {
@@ -140,7 +140,7 @@
         margin: 0 4px 0 0;
         list-style: none;
         cursor: pointer;
-        float: left;
+        float: right;
     }
 
     .resp-tabs-container {
@@ -308,7 +308,7 @@
 
     .tab3 h3 {
         font-size: 15px;
-        padding: 0;
+        padding: 10px;
         color: white;
     }
 
@@ -316,13 +316,13 @@
         color: #000;
         padding: 0px;
         font-weight: 400;
-        margin: 20px 0px 10px 0px;
+        margin: 0px 0px 0px 0px;
         font-size: 14px;
     }
 
     .tab3 input[type="text"] {
         width: 80%;
-        padding: 10px;
+        padding: 0px;
         background: transparent;
 
         border: 1px solid #000;
@@ -342,7 +342,7 @@
         /*-- w3layouts --*/
         border: none;
         padding: 10px 35px;
-        margin: 15px 0px 0px 0px;
+        margin: 5px 0px 0px 0px;
         cursor: pointer;
     }
 
@@ -352,12 +352,12 @@
 
     ul.tabs-menu {
         margin-left: 1em;
-        padding: 0;
+        padding: 1px;
     }
 
     ul.tabs-menu li {
         display: inline-block;
-        float: left;
+        float: center;
     }
 
     ul.tabs-menu li a.special {
@@ -370,7 +370,7 @@
     }
 
     .carousel-inner {
-        margin-top: 15px;
+        margin-top: 1px;
     }
 
     .latest img {
@@ -378,24 +378,24 @@
     }
 
     .tab-grid h4 {
-        color: #fff;
-        margin-top: 25px;
+        color: black;
+        margin-top: 0px;
         font-size: 20px;
     }
 
     .tab-grid h3 {
         font-size: 1em;
         margin: 0;
-        padding: 2em 0 0.5em;
+        padding: 2em 0 0em;
         font-weight: 400;
-        color: #fff;
+        color: black;
         text-transform: uppercase;
     }
 
     .tab-grid p {
         color: #777;
-        line-height: 1.7em;
-        font-size: 0.875em;
+        line-height: 2em;
+        font-size: 1em;
     }
 
     .modal-content h3 {
@@ -410,13 +410,13 @@
 
     .tab-grids {
         padding: 0 1em;
-        margin: 1em 0 0 0;
+        margin: 1em 65 65 65;
     }
 
     .carousel-indicators li {
 
-        background-color: #000;
-        border: 1px solid #fff;
+        background-color: black;
+        border: 0.2px solid white;
 
     }
 
@@ -427,7 +427,7 @@
 
     .movie1 {
 
-        float: left;
+        float: center;
 
     }
 
@@ -462,7 +462,7 @@
     }
 
     th {
-        padding: 3px 24px;
+        padding: 3px 2px;
         text-align: left;
         font-size: 12px;
     }
@@ -474,7 +474,8 @@
     }
 
     table tr:nth-child(even) {
-        background-color: #eee;
+        background-color: transparent;
+        color:white;
     }
 
     table tr:nth-child(odd) {
@@ -489,7 +490,7 @@
 
     tr td a {
         padding: 5px;
-        margin: 10px 2px;
+        margin: 10px 20px;
         background: #337AB7;
         color: #fff !important;
         display: block;
@@ -513,7 +514,7 @@
             background: ;
             color: #FFF;
             display: block;
-            border-right: 1px solid #000;
+            border-right: 140px solid #000;
             padding: 1.2em 3.3em;
         }
 
@@ -525,8 +526,8 @@
 
             color: #FFF;
             display: block;
-            border-right: 1px solid #000;
-            padding: 1.2em 3.3em;
+            border-right: 10px solid #000;
+            padding: 1em 0.9em;
         }
 
         .latest h3 {
@@ -568,7 +569,19 @@
         }
 
     }
+    .tabs-box{
+        padding:0px 90px;
+    }
+    .tab3{
+        background-color:black;
+    }
 
+    .id{
+        background-color:Red;
+    }
+    .id1{
+        background-color:transparent;
+    }
 </style>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -613,14 +626,15 @@
                                     <td>${theatre1.getTheatreName()}</td>
                                     <td>${theatre1.getCity()} ${theatre1.getZipcode()}</td>
                                     <td>
-                                        <button type="submit" class="btn btn-primary btn-lg">${theatre1.getTime()}</button>
+                                        <div class="id1">  <button type="submit" class="btn btn-primary btn-lg">${theatre1.getTime()}</button></div>
                                     </td>
                                 </tr>
-                                <form:input path="theatreName" type="hidden" value="${theatre1.getTheatreName()}" name="theatreName"/>
-                                <form:input path="city" type="hidden" value="${theatre1.getCity()}" name="city"/>
-                                <form:input path="zipcode" type="hidden" value="${theatre1.getZipcode()}" name="zipcode"/>
-                                <form:input path="time" type="hidden" value="${theatre1.getTime()}" name="time"/>
-
+                                <div class="id" >
+                                    <form:input path="theatreName" type="hidden" value="${theatre1.getTheatreName()}" name="theatreName"/>
+                                    <form:input path="city" type="hidden" value="${theatre1.getCity()}" name="city"/>
+                                    <form:input path="zipcode" type="hidden" value="${theatre1.getZipcode()}" name="zipcode"/>
+                                    <form:input path="time" type="hidden" value="${theatre1.getTime()}" name="time"/>
+                                </div>
                             </form:form>
                         </c:forEach>
 
@@ -632,3 +646,4 @@
 </div>
 </body>
 </html>
+

@@ -285,9 +285,6 @@
     }
 
     /* Change the link color to #111 (black) on hover */
-    li a:hover {
-        background-color:#567 ;
-    }
 
 </style>
 <html>
@@ -296,10 +293,10 @@
 <!----- tabs-box ---->
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="loginHome.jsp">Home</a></li>
+        <li><a href="loginHome.jsp">HOME</a></li>
         <li><a href="/movies">MOVIES</a></li>
-        <li><a href="/viewtickets">View Booking</a></li>
-        <li><a href="/logout" class="special">Log Out</a></li>
+        <li><a href="/viewtickets">VIEW BOOKING</a></li>
+        <li><a href="/logout" class="special">LOG OUT</a></li>
         <div class="clearfix"></div>
     </ul>
     <div class="clearfix"> </div>
