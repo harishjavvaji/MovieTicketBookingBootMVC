@@ -35,7 +35,8 @@ public class TicketController {
             return loginController.viewLogin(model);
 
         } else {
-            modelAndView.setViewName("payment2");
+            modelAndView.setViewName("selecttickets");
+            modelAndView.addObject("ticket", new Ticket());
             modelAndView.addObject(theatre);
             return modelAndView;
         }

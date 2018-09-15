@@ -29,7 +29,6 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView registration(@Validated @ModelAttribute Customer customer, BindingResult errors) {
-        System.out.println(customer.getFirstName());
 
         if (errors.hasErrors()) {
             return new ModelAndView("registration1");
