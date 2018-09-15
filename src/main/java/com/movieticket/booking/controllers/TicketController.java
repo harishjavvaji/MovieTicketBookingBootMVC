@@ -5,15 +5,14 @@ import com.movieticket.booking.models.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@SessionAttributes("theatre")
 public class TicketController {
     @Autowired
     LoginController loginController;
@@ -24,6 +23,10 @@ public class TicketController {
         modelAndView.addObject("price", new Ticket());
         return modelAndView;
 
+    }
+    @ModelAttribute("theatre")
+    public Theatre sessionTheatre() {
+        return new Theatre();
     }
 
     @RequestMapping(value = "/bookticket", method = RequestMethod.POST)
@@ -41,6 +44,8 @@ public class TicketController {
             return modelAndView;
         }
 
-
     }
+
+    public 
+
 }

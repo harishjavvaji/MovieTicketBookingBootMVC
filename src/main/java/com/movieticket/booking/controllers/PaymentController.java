@@ -1,8 +1,7 @@
 package com.movieticket.booking.controllers;
 
-import com.movieticket.booking.models.Customer;
-import com.movieticket.booking.models.Payment;
-import com.movieticket.booking.models.Ticket;
+import com.movieticket.booking.models.*;
+import com.movieticket.booking.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class PaymentController {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    TicketService ticketService;
 
     @RequestMapping(value = "/payment")
     public ModelAndView viewPayment(@ModelAttribute("ticket") Ticket ticket) {
@@ -34,15 +35,23 @@ public class PaymentController {
     }
 
     @RequestMapping(value = "/payment", method = RequestMethod.POST)
-    public ModelAndView confirmPayment(@ModelAttribute Payment payment, @SessionAttribute("customer")Customer customer) {
+    public ModelAndView confirmPayment(@ModelAttribute Payment payment, @SessionAttribute("customer")Customer customer,
+                                       @SessionAttribute("ticket") Ticket ticket, @SessionAttribute("theatre") Theatre theatre,
+                                       @SessionAttribute("movie") Movie movie) {
+        ticket.setUserName(customer.getUserName());
+        ticket.setMovieName(movie.getMovieName());
+        ticket.setTheatreName(theatre.getTheatreName());
+
 
         payment.setUserName(customer.getUserName());
-        System.out.println(customer.getUserName());
+
+        ticketService.confirmTicket(ticket);
+
+
 
         ResponseEntity<Payment> responseEntity =
                 restTemplate.postForEntity("http://localhost:8085/payments", payment, Payment.class);
 
-        System.out.println(responseEntity.getBody().getCardNumber());
 
         int statusCode = responseEntity.getStatusCodeValue();
 
