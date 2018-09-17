@@ -49,17 +49,9 @@ public class TicketService {
 
     public Theatre getTheatre(Theatre theatre) {
         ResponseEntity<Theatre> responseEntity =
-                restTemplate.postForEntity("http://localhost:8085/getTheatre", theatre, Theatre.class);
+                restTemplate.postForEntity("http://localhost:8085/movies", theatre, Theatre.class);
 
         return responseEntity.getBody();
 
-    }
-
-    public int cancelTicket(Customer customer) {
-
-        ResponseEntity<Customer> responseEntity =
-                restTemplate.postForEntity("http://localhost:8085/cancelticket", customer, Customer.class);
-
-        return responseEntity.getStatusCodeValue();
     }
 }
