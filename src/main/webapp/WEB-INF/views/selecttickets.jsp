@@ -596,6 +596,26 @@
         .checkout-btn a {
             margin-right: 5px;
         }
+
+    }
+    ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color:;
+      }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 30px 50px;
+        text-decoration: none;
     }
 
     /*--- Responsive Code ---*/
@@ -607,6 +627,15 @@
 
 <!-- Body-Starts-Here -->
 <body>
+<div class="tabs-box">
+    <ul class="tabs-menu">
+        <li><a href="loginHome1.jsp">HOME</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/viewtickets">VIEW BOOKING</a></li>
+        <li><a href="/logout" class="special">LOG OUT</a></li>
+        <div class="clearfix"></div>
+    </ul>
+    <div class="clearfix"> </div>
 
 <h1>Movie Ticket Booking</h1>
 

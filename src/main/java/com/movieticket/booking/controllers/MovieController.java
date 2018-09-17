@@ -51,7 +51,8 @@ public class MovieController {
 
         if (statusCode >= 200 && statusCode <= 299) {
             Theatre[] theatres = responseEntity.getBody();
-            modelAndView.addObject("theatres", theatres);
+            if(theatres != null)
+                modelAndView.addObject("theatres", theatres);
         }else
             modelAndView.addObject("Server is temporarily down");
 

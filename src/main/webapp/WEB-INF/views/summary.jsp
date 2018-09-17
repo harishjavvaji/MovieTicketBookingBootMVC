@@ -380,7 +380,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="loginHome.jsp">HOME</a></li>
+        <li><a href="loginHome1.jsp">HOME</a></li>
         <li><a href="/movies">MOVIES</a></li>
         <li><a href="/viewtickets">VIEW BOOKING</a></li>
         <li><a href="/logout" class="special">LOG OUT</a></li>
@@ -403,14 +403,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="product-right">
                     <h2>Movie Details</h2>
+                    <p>Movie Name:</p>
+                    <p>Actor Name:</p>
+                    <p>Genre:</p>
+                    <p>Movie Length:</p>
                 </div>
             </div>
 
             <div class="product-right1">
-                <p>MovieName: ${movie.getMovieName()}</p>
-                <p>ActorName:${movie.getActorName()}</p>
-                <p>Genre:${movie.getGenre()}</p>
-                <p>MovieLength:${movie.getLength()}</p>
+                <p>${movie.getMovieName()}</p>
+                <p>${movie.getActorName()}</p>
+                <p>${movie.getGenre()}</p>
+                <p>${movie.getLength()}</p>
 
 
                 <div class="close"> </div>
@@ -422,8 +426,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 <div class="product-right">
                     <h2>Theatre Details</h2>
-
-
+                    <p>Theatre Name:</p>
+                    <p>City:</p>
+                    <p>Zipcode:</p>
                 </div>
             </div>
 
@@ -442,16 +447,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 <div class="product-right">
                     <h2>Payment Details</h2>
+                    <p>AdultTickets:</p>
+                    <p>Price:</p>
+                    <p>ChildTickets:</p>
+                    <p>Price:</p>
+                    <p>Total:</p>
 
                 </div>
             </div>
 
             <div class="product-right1">
-                <p>AdultTickets:${ticket.getNumberOfAdultTickets()}</p>
-                <p>Price:${ticket.getAdultTicketPrice()}</p>
-                <p>ChildTickets:${ticket.getNumberOfChildTickets()}</p>
-                <p>Price:${ticket.getChildTicketPrice()}</p>
-                <p>Tital:${ticket.getTotalPrice()}</p>
+                <p>${ticket.getNumberOfAdultTickets()}</p>
+                <p>${ticket.getAdultTicketPrice()}</p>
+                <p>${ticket.getNumberOfChildTickets()}</p>
+                <p>${ticket.getChildTicketPrice()}</p>
+                <p>${ticket.getTotalPrice()}</p>
 
 
 
@@ -461,7 +471,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="product-bottom">
 
-            <a href="#">Cancel Ticket</a>
+            <a href="/cancelticket">Cancel Ticket</a>
             <div class="clear">
             </div>
         </div>
