@@ -283,6 +283,9 @@
         padding: 30px 50px;
         text-decoration: none;
     }
+    .error{
+        color: #D53233;
+    }
 
     /* Change the link color to #111 (black) on hover */
 
@@ -293,12 +296,16 @@
 <!----- tabs-box ---->
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="loginHome.jsp">HOME</a></li>
+        <li><a href="loginHome1.jsp">HOME</a></li>
         <li><a href="/movies">MOVIES</a></li>
         <li><a href="/viewtickets">VIEW BOOKING</a></li>
         <li><a href="/logout" class="special">LOG OUT</a></li>
         <div class="clearfix"></div>
     </ul>
+    <div class="error">
+        ${message}
+    </div>
+
     <div class="clearfix"> </div>
     <div class="tab-grids">
         <div id="tab1" class="tab-grid">
