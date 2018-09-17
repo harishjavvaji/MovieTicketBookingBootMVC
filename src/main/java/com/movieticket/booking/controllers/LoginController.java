@@ -2,17 +2,17 @@ package com.movieticket.booking.controllers;
 
 import com.movieticket.booking.models.Customer;
 import com.movieticket.booking.services.LoginService;
+import com.movieticket.booking.validators.LoginValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.security.auth.login.LoginContext;
 import javax.validation.Valid;
 
 @Controller
@@ -22,32 +22,44 @@ public class LoginController {
     LoginService loginService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView viewLogin() {
+    public ModelAndView viewLogin(Model model) {
 
-        ModelAndView modelAndView = new ModelAndView("login");
-        modelAndView.addObject(new Customer());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login1");
+        model.addAttribute("customer", new Customer());
         return modelAndView;
 
     }
 
+    @ModelAttribute("customer")
+    public Customer  setupCustomer() {
+        return new Customer();
+    }
+
     @RequestMapping(value = "/validateLogin", method = RequestMethod.POST)
-    public ModelAndView validateLogin(@Valid @ModelAttribute("customer")Customer customer, Errors errors) {
+    public ModelAndView validateLogin(@Validated @ModelAttribute("customer") Customer customer, BindingResult errors) {
+
         if (errors.hasErrors()) {
 
-            ModelAndView modelAndView = new ModelAndView("login");
-            modelAndView.addObject("error", errors.getAllErrors());
-            return modelAndView;
+            return new ModelAndView("login1");
         }
 
         Boolean validation = loginService.validateLogin(customer);
 
         if (validation.equals(true)) {
-            return new ModelAndView("loginhome");
+            return new ModelAndView("loginHome1");
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("login");
+            ModelAndView modelAndView = new ModelAndView("login1");
             modelAndView.addObject("validationError", "Invalid Username or Password");
             return modelAndView;
         }
+
+    }
+
+
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder) {
+        webDataBinder.addValidators(new LoginValidator());
     }
 }

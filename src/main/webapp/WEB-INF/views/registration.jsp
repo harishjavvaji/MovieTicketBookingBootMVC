@@ -14,6 +14,13 @@
 
 
 </head>
+<Style>
+    .navbar-inverse {
+        background-color: #242;
+        border-color: #082308;
+        font-style:italic;
+    }
+</Style>
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -33,7 +40,7 @@
         </ul>
     </div>
 </nav>
-<form:form class="form-horizontal" action="/registration" method="post">
+<form:form class="form-middle" action="/registration" method="post" modelAttribute="customer">
     <div class="form-group">
         <label class="control-label col-sm-2" for="firstName">First Name:</label>
         <div class="col-sm-10">
@@ -48,21 +55,11 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label col-sm-2">Gender:</label>
-        <div class="col-sm-10">
-            <input type="radio" class="form-check-input" name="gender" id="male" value="Male">Male
-        </div>
-        <div class="col-sm-10">
-            <input type="radio" class="form-check-input" name="gender" id="female" value="Female">Female
-        </div>
-
-    </div>
 
     <div class="form-group">
-        <label class="control-label col-sm-2" for="eMail">Email:</label>
+        <label class="control-label col-sm-2" for="email">Email:</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" id="eMail" name="eMail" placeholder="Enter email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
         </div>
     </div>
     <div class="form-group">

@@ -6,28 +6,34 @@ import javax.validation.constraints.NotNull;
 
 //@Entity
 public class Payment {
-//    @NotNull
-//    @Column(name = "cardnumber")
+
     private int cardNumber;
-//    @NotNull
-//    @Column(name = "cardholdername")
+
     private String cardHolderName;
-//    @NotNull
-//    @Column(name = "month")
+
     private int month;
-//    @NotNull
-//    @Column(name = "year")
+
     private int year;
+
+    private String userName;
 
     public Payment() {
     }
 
-    public Payment(int cardNumber, String cardHolderName, int month, int year) {
-
+    public Payment(int cardNumber, String cardHolderName, int month, int year, String userName) {
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
         this.month = month;
         this.year = year;
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getCardNumber() {
