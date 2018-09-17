@@ -462,6 +462,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="product-bottom">
 
             <a href="/cancelticket">Cancel Ticket</a>
+            
             <div class="clear">
             </div>
         </div>
