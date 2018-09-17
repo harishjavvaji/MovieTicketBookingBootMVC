@@ -37,10 +37,10 @@ public class TicketController {
 
     @RequestMapping(value = "/bookticket", method = RequestMethod.POST)
     public ModelAndView navigateCustomer(@ModelAttribute("theatre")Theatre theatre,
-                                         @SessionAttribute("customer") Customer customer,
+                                         HttpSession session,
                                          Model model) {
         ModelAndView modelAndView = new ModelAndView();
-        if (null == customer.getUserName()) {
+        if (null == session.getAttribute("customer")) {
             return loginController.viewLogin(model);
 
         } else {
@@ -73,22 +73,6 @@ public class TicketController {
         modelAndView.addObject("theatre", theatre1);
 
         return modelAndView;
-
-
-    }
-
-    @RequestMapping(value = "/cancelticket", method = RequestMethod.GET)
-    public ModelAndView cancelTicket(@SessionAttribute("customer") Customer customer) {
-        int statusCode = ticketService.cancelTicket(customer);
-        ModelAndView modelAndView = new ModelAndView("loginHome1");
-
-        if (statusCode >= 200 && statusCode <= 299) {
-            modelAndView.addObject("message", "Ticket Cancelled Successfully");
-            return modelAndView;
-        }else {
-            modelAndView.addObject("message", "Something went wrong!!");
-            return modelAndView;
-        }
 
 
     }
