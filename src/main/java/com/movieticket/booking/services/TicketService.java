@@ -54,4 +54,13 @@ public class TicketService {
         return responseEntity.getBody();
 
     }
+
+    public int cancelTicket(Customer customer) {
+        ResponseEntity<Customer> responseEntity =
+                restTemplate.postForEntity("http://localhost:8085/cancelticket", customer, Customer.class);
+
+        return responseEntity.getStatusCodeValue();
+    }
+
+
 }

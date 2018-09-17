@@ -77,4 +77,19 @@ public class TicketController {
 
     }
 
+    @RequestMapping(value = "/cancelticket", method = RequestMethod.GET)
+    public ModelAndView cancelTicket(@SessionAttribute("customer") Customer customer) {
+        int statuscode = ticketService.cancelTicket(customer);
+        ModelAndView modelAndView = new ModelAndView("loginHome1");
+
+        if (statuscode >= 200 && statuscode <= 299) {
+            modelAndView.addObject("message", "Ticket cancelled successfully");
+            return modelAndView;
+        }else {
+            modelAndView.addObject("message", "Something went wrong!!");
+            return modelAndView;
+        }
+    }
+
+
 }
