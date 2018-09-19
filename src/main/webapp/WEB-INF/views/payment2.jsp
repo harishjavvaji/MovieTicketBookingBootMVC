@@ -230,33 +230,15 @@
     .total{
         font-size: larger;
         color: darkturquoise;
-    } ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color:;
-      }
-
-    li {
-        float: left;
     }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 30px 50px;
-        text-decoration: none;
-    }
-
 
 </style>
 
 <html>
 
 <body>
-<div class="tabs-box">
+
+  <div class="tabs-box">
     <ul class="tabs-menu">
         <li><a href="/loginhome1">HOME</a></li>
         <li><a href="/movies">MOVIES</a></li>
@@ -265,6 +247,7 @@
         <div class="clearfix"></div>
     </ul>
     <div class="clearfix"> </div>
+
 <div class="container">
     <form action="/payment" method="post">
         <div class="payment"><h2>Payment Form</h2></div>

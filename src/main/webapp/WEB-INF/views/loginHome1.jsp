@@ -283,9 +283,6 @@
         padding: 30px 50px;
         text-decoration: none;
     }
-    .error{
-        color: #D53233;
-    }
 
     /* Change the link color to #111 (black) on hover */
 
@@ -302,7 +299,8 @@
         <li><a href="/logout" class="special">LOG OUT</a></li>
         <div class="clearfix"></div>
     </ul>
-    <div class="error">
+
+  <div class="error">
         ${message}
     </div>
     <div class="error">

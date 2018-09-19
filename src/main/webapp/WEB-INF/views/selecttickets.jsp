@@ -596,26 +596,6 @@
         .checkout-btn a {
             margin-right: 5px;
         }
-
-    }
-    ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color:;
-      }
-
-    li {
-        float: left;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 30px 50px;
-        text-decoration: none;
     }
 
     /*--- Responsive Code ---*/
@@ -636,6 +616,7 @@
         <div class="clearfix"></div>
     </ul>
     <div class="clearfix"> </div>
+
 
 <h1>Movie Ticket Booking</h1>
 

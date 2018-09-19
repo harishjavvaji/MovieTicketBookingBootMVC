@@ -40,6 +40,7 @@ public class TicketController {
                                          HttpSession session,
                                          Model model) {
         ModelAndView modelAndView = new ModelAndView();
+
         Customer customer = (Customer) session.getAttribute("customer");
 
         if (customer != null) {
@@ -84,6 +85,7 @@ public class TicketController {
 
 
     }
+
 
     @RequestMapping(value = "/cancelticket", method = RequestMethod.GET)
     public ModelAndView cancelTicket(@SessionAttribute("customer") Customer customer) {
