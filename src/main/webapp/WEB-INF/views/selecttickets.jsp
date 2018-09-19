@@ -629,7 +629,7 @@
 <body>
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="loginHome1.jsp">HOME</a></li>
+        <li><a href="/loginhome1">HOME</a></li>
         <li><a href="/movies">MOVIES</a></li>
         <li><a href="/viewtickets">VIEW BOOKING</a></li>
         <li><a href="/logout" class="special">LOG OUT</a></li>

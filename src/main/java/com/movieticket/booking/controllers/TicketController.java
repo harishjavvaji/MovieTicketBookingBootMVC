@@ -37,18 +37,18 @@ public class TicketController {
 
     @RequestMapping(value = "/bookticket", method = RequestMethod.POST)
     public ModelAndView navigateCustomer(@ModelAttribute("theatre")Theatre theatre,
-                                         @SessionAttribute("customer") Customer customer,
+                                         HttpSession session,
                                          Model model) {
         ModelAndView modelAndView = new ModelAndView();
-        if (null == customer.getUserName()) {
-            return loginController.viewLogin(model);
+        Customer customer = (Customer) session.getAttribute("customer");
 
-        } else {
+        if (customer != null) {
             modelAndView.setViewName("selecttickets");
             modelAndView.addObject("ticket", new Ticket());
             modelAndView.addObject(theatre);
             return modelAndView;
-        }
+        }else
+            return loginController.viewLogin(model);
 
     }
 
@@ -56,7 +56,7 @@ public class TicketController {
     public ModelAndView viewTickets(@SessionAttribute("customer")Customer customer) {
 
 
-        ModelAndView modelAndView = new ModelAndView("summary");
+        ModelAndView modelAndView = new ModelAndView();
 
         Ticket ticket = ticketService.viewTickets(customer);
 
@@ -68,9 +68,17 @@ public class TicketController {
         theatre.setTheatreName(ticket.getTheatreName());
         Theatre theatre1 = ticketService.getTheatre(theatre);
 
-        modelAndView.addObject("ticket", ticket);
-        modelAndView.addObject("movie", movie1);
-        modelAndView.addObject("theatre", theatre1);
+        if (ticket.getNumberOfChildTickets() == 0 && ticket.getNumberOfAdultTickets() == 0) {
+            modelAndView.setViewName("loginHome1");
+            modelAndView.addObject("ticketmessage", "No Tickets to view!!");
+
+        }else {
+            modelAndView.setViewName("summary");
+            modelAndView.addObject("ticket", ticket);
+            modelAndView.addObject("movie", movie1);
+            modelAndView.addObject("theatre", theatre1);
+        }
+
 
         return modelAndView;
 
@@ -89,7 +97,6 @@ public class TicketController {
             modelAndView.addObject("message", "Something went wrong!!");
             return modelAndView;
         }
-
 
     }
 
