@@ -238,6 +238,16 @@
 
 <body>
 
+  <div class="tabs-box">
+    <ul class="tabs-menu">
+        <li><a href="/loginhome1">HOME</a></li>
+        <li><a href="/movies">MOVIES</a></li>
+        <li><a href="/viewtickets">VIEW BOOKING</a></li>
+        <li><a href="/logout" class="special">LOG OUT</a></li>
+        <div class="clearfix"></div>
+    </ul>
+    <div class="clearfix"> </div>
+
 <div class="container">
     <form action="/payment" method="post">
         <div class="payment"><h2>Payment Form</h2></div>

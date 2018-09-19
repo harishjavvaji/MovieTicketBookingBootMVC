@@ -293,12 +293,20 @@
 <!----- tabs-box ---->
 <div class="tabs-box">
     <ul class="tabs-menu">
-        <li><a href="loginHome.jsp">HOME</a></li>
+        <li><a href="/loginhome1">HOME</a></li>
         <li><a href="/movies">MOVIES</a></li>
         <li><a href="/viewtickets">VIEW BOOKING</a></li>
         <li><a href="/logout" class="special">LOG OUT</a></li>
         <div class="clearfix"></div>
     </ul>
+
+  <div class="error">
+        ${message}
+    </div>
+    <div class="error">
+        <h1>${ticketmessage}</h1>
+    </div>
+
     <div class="clearfix"> </div>
     <div class="tab-grids">
         <div id="tab1" class="tab-grid">

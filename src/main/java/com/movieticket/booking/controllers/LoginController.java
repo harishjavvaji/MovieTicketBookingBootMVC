@@ -21,6 +21,12 @@ public class LoginController {
     @Autowired
     LoginService loginService;
 
+    @RequestMapping(value = "/loginhome1")
+    public ModelAndView viewLoginHome() {
+        return new ModelAndView("loginHome1");
+
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView viewLogin(Model model) {
 

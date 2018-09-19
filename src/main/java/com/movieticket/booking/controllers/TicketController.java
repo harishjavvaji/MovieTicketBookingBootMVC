@@ -40,15 +40,16 @@ public class TicketController {
                                          HttpSession session,
                                          Model model) {
         ModelAndView modelAndView = new ModelAndView();
-        if (null == session.getAttribute("customer")) {
-            return loginController.viewLogin(model);
 
-        } else {
+        Customer customer = (Customer) session.getAttribute("customer");
+
+        if (customer != null) {
             modelAndView.setViewName("selecttickets");
             modelAndView.addObject("ticket", new Ticket());
             modelAndView.addObject(theatre);
             return modelAndView;
-        }
+        }else
+            return loginController.viewLogin(model);
 
     }
 
@@ -56,7 +57,7 @@ public class TicketController {
     public ModelAndView viewTickets(@SessionAttribute("customer")Customer customer) {
 
 
-        ModelAndView modelAndView = new ModelAndView("summary");
+        ModelAndView modelAndView = new ModelAndView();
 
         Ticket ticket = ticketService.viewTickets(customer);
 
@@ -68,12 +69,36 @@ public class TicketController {
         theatre.setTheatreName(ticket.getTheatreName());
         Theatre theatre1 = ticketService.getTheatre(theatre);
 
-        modelAndView.addObject("ticket", ticket);
-        modelAndView.addObject("movie", movie1);
-        modelAndView.addObject("theatre", theatre1);
+        if (ticket.getNumberOfChildTickets() == 0 && ticket.getNumberOfAdultTickets() == 0) {
+            modelAndView.setViewName("loginHome1");
+            modelAndView.addObject("ticketmessage", "No Tickets to view!!");
+
+        }else {
+            modelAndView.setViewName("summary");
+            modelAndView.addObject("ticket", ticket);
+            modelAndView.addObject("movie", movie1);
+            modelAndView.addObject("theatre", theatre1);
+        }
+
 
         return modelAndView;
 
+
+    }
+
+
+    @RequestMapping(value = "/cancelticket", method = RequestMethod.GET)
+    public ModelAndView cancelTicket(@SessionAttribute("customer") Customer customer) {
+        int statusCode = ticketService.cancelTicket(customer);
+        ModelAndView modelAndView = new ModelAndView("loginHome1");
+
+        if (statusCode >= 200 && statusCode <= 299) {
+            modelAndView.addObject("message", "Ticket Cancelled Successfully");
+            return modelAndView;
+        }else {
+            modelAndView.addObject("message", "Something went wrong!!");
+            return modelAndView;
+        }
 
     }
 

@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import com.movieticket.booking.models.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -19,13 +20,23 @@ public class MovieController {
     @Autowired
     RestTemplate restTemplate;
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
-    public ModelAndView viewMovies(Model model) {
-        ModelAndView modelAndView = new ModelAndView("movies1");
+    public ModelAndView viewMovies(Model model, HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
         model.addAttribute("movie", new Movie());
 
         ResponseEntity<Movie[]> responseEntity =
                 restTemplate.getForEntity("http://localhost:8085/movies", Movie[].class);
         int statusCode = responseEntity.getStatusCodeValue();
+
+//        Customer customer = (Customer) session.getAttribute("customer");
+
+
+        if ( null !=  session.getAttribute("customer")) {
+            System.out.println(session.getAttribute("customer"));
+            modelAndView.setViewName("movieslogin");
+        }else
+            modelAndView.setViewName("movies1");
+
 
         if (statusCode >= 200 && statusCode <= 299) {
             Movie[] movies = responseEntity.getBody();
